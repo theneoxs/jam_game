@@ -1,9 +1,9 @@
 extends Node2D
-var damage:int = 100
-var speed:int = 100
-var size:int = 100
+@export var damage:int = 100
+@export var speed:int = 100
+@export var size:int = 100
+@export var isBomb:bool = false
 var projectileOwner:Object
-var isBomb:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
