@@ -1,6 +1,5 @@
 extends Node2D
 
-class_name RangeAttack
 
 func _attack():
 	pass
