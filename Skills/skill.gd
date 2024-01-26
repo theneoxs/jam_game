@@ -1,4 +1,4 @@
-class_name skill_class
+class_name skill_class extends Node2D
 
 var name_skill = ""
 var type_skill = 0
@@ -14,6 +14,7 @@ func _init():
 		"image_skill" : "",
 		"description_skill" : "This test skill. You do not show him"
 	}
+	set_data(data)
 
 func set_data(data):
 	name_skill = data["name_skill"]
