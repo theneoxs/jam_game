@@ -1,6 +1,5 @@
 extends Node2D
 
-class_name ShortAttack
 func _attack():
 	pass
 

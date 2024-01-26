@@ -11,10 +11,17 @@ class_name Enemy
 @export var modEffect:Sprite2D
 var item:Object 
 var modification:Object
-var enemytypes:Array = [ShortAttack, RangeAttack]
+var enemyType:Object
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var a = randi_range(0,1)
+	if a == 0:
+		var enemyType = preload("res://Battle/EnemyRelated/RangeAttack.tscn")
+		add_child(enemyType)
+	else:
+		var enemyType = preload("res://Battle/EnemyRelated/ShortAttack.tscn")
+		add_child(enemyType)
 	pass # Replace with function body.
 
 
