@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cynchbnkk75hp"]
+
+[ext_resource type="Script" path="res://Battle/EnemyRelated/ShortAttack.gd" id="1_wlw0a"]
+
+[node name="ShortAttack" type="Node2D"]
+script = ExtResource("1_wlw0a")

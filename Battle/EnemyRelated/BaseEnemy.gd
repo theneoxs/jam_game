@@ -1,4 +1,5 @@
 extends Node2D
+class_name Enemy
 
 @export var hp:int = 100
 @export var speed:int = 100
@@ -10,7 +11,7 @@ extends Node2D
 @export var modEffect:Sprite2D
 var item:Object 
 var modification:Object
-
+var enemytypes:Array = [ShortAttack, RangeAttack]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
