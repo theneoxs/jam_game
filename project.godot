@@ -11,10 +11,26 @@ config_version=5
 [application]
 
 config/name="jam_game"
+run/main_scene="res://Scenes/main_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Res/icon.svg"
+
+[autoload]
+
+Global="*res://global.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.247059, 0.247059, 0.247059, 1)
+anti_aliasing/quality/screen_space_aa=1
