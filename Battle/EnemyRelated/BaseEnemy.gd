@@ -1,14 +1,14 @@
 extends Node2D
 
-var hp:int = 100
-var speed:int = 100
-var attackDelay:int = 100
-var score:int = 100
-var damage:int = 100
+@export var hp:int = 100
+@export var speed:int = 100
+@export var attackDelay:int = 100
+@export var score:int = 100
+@export var damage:int = 100
+@export var baseSprite:Sprite2D
+@export var additionalSprite:Sprite2D
+@export var modEffect:Sprite2D
 var item:Object 
-var baseSprite:Sprite2D
-var additionalSprite:Sprite2D
-var modEffect:Sprite2D
 var modification:Object
 
 
