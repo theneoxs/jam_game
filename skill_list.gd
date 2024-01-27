@@ -1,9 +1,21 @@
 extends Node
 
+var link_player = null
+
 var skill_list_queue = []
 
 func _ready():
 	randomize()
+	skill_list_queue.append($Skill1)
+	skill_list_queue.append($Skill1)
+	skill_list_queue.append($Skill1)
+	skill_list_queue.append($Skill1)
+
+func _process(delta):
+	if Input.is_action_just_pressed("skill_pressed"):
+		if len(skill_list_queue) > 0:
+			release_first_skill().release()
+			get_parent().gui.change_skill(skill_list_queue.slice(0, 3))
 
 #Добавляет скилл в очередь
 func add_skill(skill : skill_class):

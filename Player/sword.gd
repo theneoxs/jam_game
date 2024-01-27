@@ -30,7 +30,7 @@ func _process(delta):
 			delta_move_coef = -0.1
 		move_coef += delta_move_coef*0.1
 		sprite.position = path_point.position
-		sprite.rotation_degrees = 45 - 90*path_point.progress_ratio
+		sprite.rotation_degrees = 45 - 90 * path_point.progress_ratio
 	if path_point.progress_ratio >= 0.9:
 		is_attacked = false
 		sprite.position = Vector2(10, 0)
@@ -44,3 +44,7 @@ func attack():
 	sprite.rotation_degrees = 45
 	path_point.progress_ratio = 0
 	is_attacked = true
+
+func _on_area_2d_body_entered(body):
+	if body.name != "Player":
+		print(body.name)

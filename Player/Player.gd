@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var hp = 100
+var hp = 50
 var max_hp = 100
 
 const SPEED = 250.0
@@ -17,7 +17,11 @@ var dash_vector = Vector2()
 
 func _ready():
 	anim_play.current_animation = "idle"
-	hp = max_hp
+	#hp = max_hp
+
+func show_hp():
+	get_parent().gui.set_max_hp_value(max_hp)
+	get_parent().gui.set_hp_value(hp)
 
 func _physics_process(delta):
 	var direction = Vector2()
