@@ -22,7 +22,7 @@ func increase_toxic_value(inc_value):
 
 func set_hp_value(value):
 	HP_bar.value = value
-	HP_bar_text.text = "{value}/{max}".format({"value" : value, "max" : HP_bar.max_value})
+	HP_bar_text.text = "{value}/{max}".format({"value" : value if value <= HP_bar.max_value else HP_bar.max_value, "max" : HP_bar.max_value})
 
 func increase_hp_value(inc_value):
 	set_hp_value(HP_bar.value + inc_value)

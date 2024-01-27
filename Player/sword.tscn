@@ -9,7 +9,7 @@ region = Rect2(62.9416, 18.628, 31.121, 10.4462)
 
 [sub_resource type="Curve2D" id="Curve2D_5l67k"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 19, 25, 0, 0, 0, 0, 33, 15, 0, 0, 0, 0, 39, 1, 0, 0, 0, 0, 31, -15, 0, 0, 0, 0, 22, -27)
+"points": PackedVector2Array(0, 0, 0, 0, 28, 35, 0, 0, 0, 0, 46, 19, 0, 0, 0, 0, 53, 1, 0, 0, 0, 0, 44, -18, 0, 0, 0, 0, 28, -35)
 }
 point_count = 5
 
@@ -21,9 +21,16 @@ position = Vector2(10, 0)
 scale = Vector2(1.5375, 1.5375)
 texture = SubResource("AtlasTexture_2dyj0")
 
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Area2D"]
+polygon = PackedVector2Array(-5.85366, 1.95122, -2.60163, 1.95122, 12.3577, 1.95122, 14.9593, 0, 12.3577, -1.95122, -2.60163, -1.95122, -5.85366, -1.95122)
+
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_5l67k")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(19, 25)
-rotation = -0.62025
+position = Vector2(28, 35)
+rotation = -0.726642
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
