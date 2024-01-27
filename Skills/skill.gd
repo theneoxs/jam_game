@@ -11,7 +11,7 @@ func _init():
 	var data = {
 		"name_skill" : "Test skill",
 		"type_skill" : randi_range(0, 10),
-		"image_skill" : "",
+		"image_skill" : "res://Res/icon.svg",
 		"description_skill" : "This test skill. You do not show him"
 	}
 	set_data(data)

@@ -33,7 +33,7 @@ func set_max_hp_value(value):
 
 func _process(delta):
 	timer += delta
-	timer_text.text = "{mm}:{ss}".format({"mm" : timer/60, "ss" : timer%60})
+	timer_text.text = "{mm}:{ss}".format({"mm" : "%02d" % (int(timer)/60), "ss" : "%02d" % (int(timer) % 60)})
 
 func set_wave(num_wave, num_diff = 0):
 	wave_text.text = "Wave: {wave} ({diff})".format({"wave" : num_wave, "diff" : num_diff})
@@ -49,6 +49,6 @@ func change_skill(skill_list):
 			skill_table.get_node(str(i+1)).visible = false
 		
 		if skill_list[i] != null:
-			skill_table.get_node(str(i+1)).texture = load(skill_list[i]["image_skill"])
+			skill_table.get_node(str(i+1)+"/Texture").texture = load(skill_list[i]["image_skill"])
 		
 		

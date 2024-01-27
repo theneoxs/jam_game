@@ -9,6 +9,11 @@ var dash_timer = 0.0
 var cooldown_timer = 0.0
 
 var dash_vector = Vector2()
+@onready var anim_play = $AnimationPlayer
+@onready var sprite = $Sprite2D
+
+func _ready():
+	anim_play.current_animation = "idle"
 
 func _physics_process(delta):
 	var direction = Vector2()
@@ -16,11 +21,23 @@ func _physics_process(delta):
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	direction = direction.normalized()
-
+	
+	if direction.length() != 0:
+		anim_play.current_animation = "run"
+	else:
+		anim_play.current_animation = "idle"
+	
+	var len_to_mouse = get_global_mouse_position()-global_position
+	
+	if (len_to_mouse.x > 0):
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
+	
 	# Check for cooldown
 	if cooldown_timer > 0.0:
 		cooldown_timer -= delta
-
+	
 	# Check for dash input and cooldown status.
 	if Input.is_action_pressed("ui_accept") and not is_dashing and cooldown_timer <= 0.0:
 		is_dashing = true

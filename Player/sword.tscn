@@ -11,6 +11,6 @@ region = Rect2(62.9416, 18.628, 31.121, 10.4462)
 script = ExtResource("1_d3ox4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(41.7687, 14.3125)
+position = Vector2(10, 5)
 scale = Vector2(1.5375, 1.5375)
 texture = SubResource("AtlasTexture_2dyj0")

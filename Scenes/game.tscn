@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b7yr51m0mqks5"]
+[gd_scene load_steps=18 format=3 uid="uid://b7yr51m0mqks5"]
 
 [ext_resource type="Script" path="res://Scenes/game.gd" id="1_403he"]
 [ext_resource type="Script" path="res://Scenes/GUI.gd" id="2_4k0ly"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://6b2hdefjcvdy" path="res://skill_list.tscn" id="10_o8smn"]
 [ext_resource type="Texture2D" uid="uid://c7a54nha6e7ab" path="res://Res/skill.png" id="11_pvfw1"]
 [ext_resource type="Texture2D" uid="uid://jr7n0gl7beng" path="res://Res/frame2.png" id="12_f74yy"]
+[ext_resource type="PackedScene" uid="uid://xvdvkmrmx52" path="res://Player/Player.tscn" id="15_i1y8m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sn7y"]
 bg_color = Color(0.447059, 0.494118, 0.6, 1)
@@ -240,15 +241,20 @@ size_flags_horizontal = 3
 texture = ExtResource("12_f74yy")
 stretch_mode = 5
 
-[node name="1" type="TextureRect" parent="GUI/Skill/HBoxContainer/1"]
+[node name="Texture" type="TextureRect" parent="GUI/Skill/HBoxContainer/1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-texture = ExtResource("12_f74yy")
+texture = ExtResource("7_ockte")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="2" type="TextureRect" parent="GUI/Skill/HBoxContainer"]
@@ -258,6 +264,22 @@ size_flags_horizontal = 3
 texture = ExtResource("12_f74yy")
 stretch_mode = 5
 
+[node name="Texture" type="TextureRect" parent="GUI/Skill/HBoxContainer/2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_ockte")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="3" type="TextureRect" parent="GUI/Skill/HBoxContainer"]
 modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
@@ -265,6 +287,29 @@ size_flags_horizontal = 3
 texture = ExtResource("12_f74yy")
 stretch_mode = 5
 
+[node name="Texture" type="TextureRect" parent="GUI/Skill/HBoxContainer/3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_ockte")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Session" parent="." instance=ExtResource("9_6rekq")]
 
 [node name="SkillList" parent="." instance=ExtResource("10_o8smn")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 25.0
+
+[node name="Player" parent="." instance=ExtResource("15_i1y8m")]
+position = Vector2(645, 400)
