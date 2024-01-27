@@ -44,7 +44,11 @@ func set_score(value):
 func change_skill(skill_list):
 	for i in len(skill_list):
 		skill_table.get_node(str(i+1)).visible = true
+		skill_table.get_node(str(i+1)).texture = null
 		if skill_list[i] == null and i != 0:
 			skill_table.get_node(str(i+1)).visible = false
 		
-		skill_table.get_node(str(i+1)).texture = null
+		if skill_list[i] != null:
+			skill_table.get_node(str(i+1)).texture = load(skill_list[i]["image_skill"])
+		
+		

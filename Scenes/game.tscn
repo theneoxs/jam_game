@@ -234,8 +234,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="s1" type="TextureRect" parent="GUI/Skill/HBoxContainer"]
+[node name="1" type="TextureRect" parent="GUI/Skill/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_f74yy")
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="GUI/Skill/HBoxContainer/1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 texture = ExtResource("12_f74yy")
 stretch_mode = 5
