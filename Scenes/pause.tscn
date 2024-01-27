@@ -1,0 +1,154 @@
+[gd_scene load_steps=7 format=3 uid="uid://c48x5uedinvt7"]
+
+[ext_resource type="Texture2D" uid="uid://ck8uegypy5ol6" path="res://Res/menu frame.png" id="1_a0o4o"]
+[ext_resource type="Script" path="res://Scenes/pause.gd" id="1_s5of8"]
+[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="2_vqksf"]
+[ext_resource type="Texture2D" uid="uid://co7ipp52uimuv" path="res://Res/button.png" id="3_mrfg3"]
+[ext_resource type="Texture2D" uid="uid://dxy7aus7y5qft" path="res://Res/button pressed.png" id="5_x0mo2"]
+[ext_resource type="Texture2D" uid="uid://dqn2gna42tmyb" path="res://Res/button hover.png" id="6_lpmyp"]
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_s5of8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.509804)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -286.0
+offset_right = 375.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a0o4o")
+
+[node name="Label2" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -191.0
+offset_right = 87.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vqksf")
+theme_override_font_sizes/font_size = 41
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitBtn" type="TextureButton" parent="TextureRect"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 135.0
+offset_right = 75.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_mrfg3")
+texture_pressed = ExtResource("5_x0mo2")
+texture_hover = ExtResource("6_lpmyp")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TextureRect/ExitBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("2_vqksf")
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartBtn" type="TextureButton" parent="TextureRect"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 37.0
+offset_right = 75.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_mrfg3")
+texture_pressed = ExtResource("5_x0mo2")
+texture_hover = ExtResource("6_lpmyp")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TextureRect/RestartBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("2_vqksf")
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeBtn" type="TextureButton" parent="TextureRect"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -61.0
+offset_right = 75.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_mrfg3")
+texture_pressed = ExtResource("5_x0mo2")
+texture_hover = ExtResource("6_lpmyp")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TextureRect/ResumeBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("2_vqksf")
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureRect/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="TextureRect/RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="TextureRect/ResumeBtn" to="." method="_on_resume_btn_pressed"]

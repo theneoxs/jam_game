@@ -1,307 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7yr51m0mqks5"]
+[gd_scene load_steps=9 format=3 uid="uid://b7yr51m0mqks5"]
 
 [ext_resource type="Script" path="res://Scenes/game.gd" id="1_403he"]
-[ext_resource type="Script" path="res://Scenes/GUI.gd" id="2_4k0ly"]
-[ext_resource type="Texture2D" uid="uid://t7u331pyvy35" path="res://Res/toxic.png" id="2_vr3fo"]
-[ext_resource type="Texture2D" uid="uid://corahp8hkc1w1" path="res://Res/toxic full.png" id="3_l4ss4"]
-[ext_resource type="FontFile" uid="uid://c7fb77pn6jjic" path="res://Res/m5x7.ttf" id="4_pxsdy"]
-[ext_resource type="Texture2D" uid="uid://c0wp44i4lxkrh" path="res://Res/hp null.png" id="5_ocm0c"]
-[ext_resource type="Texture2D" uid="uid://dc1ry2khill2v" path="res://Res/hp full.png" id="6_w3gke"]
+[ext_resource type="PackedScene" uid="uid://c4t080anv7fgf" path="res://Scenes/gui.tscn" id="2_ussom"]
+[ext_resource type="Script" path="res://Scenes/Dummy.gd" id="6_rn58f"]
 [ext_resource type="Texture2D" uid="uid://ck0igiwyl5jtk" path="res://Res/icon.svg" id="7_ockte"]
-[ext_resource type="Texture2D" uid="uid://bhssoo11ytyhx" path="res://Res/frame.png" id="8_2sovx"]
 [ext_resource type="PackedScene" uid="uid://uc6pvbu8gxwj" path="res://session.tscn" id="9_6rekq"]
-[ext_resource type="Texture2D" uid="uid://h34qnp3atlsh" path="res://Res/clock.png" id="10_6r5kb"]
 [ext_resource type="PackedScene" uid="uid://6b2hdefjcvdy" path="res://skill_list.tscn" id="10_o8smn"]
-[ext_resource type="Texture2D" uid="uid://c7a54nha6e7ab" path="res://Res/skill.png" id="11_pvfw1"]
-[ext_resource type="Texture2D" uid="uid://jr7n0gl7beng" path="res://Res/frame2.png" id="12_f74yy"]
 [ext_resource type="PackedScene" uid="uid://xvdvkmrmx52" path="res://Player/Player.tscn" id="15_i1y8m"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sn7y"]
-bg_color = Color(0.447059, 0.494118, 0.6, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="Theme" id="Theme_gt6kp"]
-Panel/styles/panel = SubResource("StyleBoxFlat_3sn7y")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsnpd"]
+size = Vector2(121.263, 124.632)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_403he")
 metadata/_edit_vertical_guides_ = [55.0]
 
-[node name="GUI" type="CanvasLayer" parent="."]
-script = ExtResource("2_4k0ly")
-
-[node name="ToxicBar" type="TextureProgressBar" parent="GUI"]
-offset_left = 117.0
-offset_top = 52.0
-offset_right = 288.0
-offset_bottom = 93.0
-value = 50.0
-nine_patch_stretch = true
-texture_under = ExtResource("2_vr3fo")
-texture_progress = ExtResource("3_l4ss4")
-
-[node name="Label" type="Label" parent="GUI/ToxicBar"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = -12.0
-offset_right = 70.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.662745)
-theme_override_fonts/font = ExtResource("4_pxsdy")
-theme_override_font_sizes/font_size = 16
-text = "50/100"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HPBar" type="TextureProgressBar" parent="GUI"]
-offset_left = 114.0
-offset_top = 20.475
-offset_right = 373.0
-offset_bottom = 68.475
-value = 50.0
-nine_patch_stretch = true
-texture_under = ExtResource("5_ocm0c")
-texture_progress = ExtResource("6_w3gke")
-
-[node name="Label" type="Label" parent="GUI/HPBar"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = -12.0
-offset_right = 70.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.65098)
-theme_override_fonts/font = ExtResource("4_pxsdy")
-theme_override_font_sizes/font_size = 20
-text = "50/100"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HeroImage" type="TextureRect" parent="GUI"]
-offset_left = 48.0
-offset_top = 37.0
-offset_right = 118.0
-offset_bottom = 107.0
-texture = ExtResource("7_ockte")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="HeroImageRect" type="TextureRect" parent="GUI"]
-offset_left = 33.0
-offset_top = 18.0
-offset_right = 135.0
-offset_bottom = 126.0
-texture = ExtResource("8_2sovx")
-stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="GUI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -118.0
-offset_top = 31.0
-offset_right = -53.0
-offset_bottom = 96.0
-grow_horizontal = 2
-texture = ExtResource("10_6r5kb")
-stretch_mode = 5
-
-[node name="WaveText" type="Label" parent="GUI/TextureRect"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_top = 1.0
-offset_right = 168.0
-offset_bottom = 39.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("4_pxsdy")
-theme_override_font_sizes/font_size = 48
-text = "Wave: 3 (0)"
-vertical_alignment = 1
-
-[node name="WaveText2" type="Label" parent="GUI/TextureRect"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_top = 31.0
-offset_right = 117.0
-offset_bottom = 57.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("4_pxsdy")
-theme_override_font_sizes/font_size = 32
-text = "12:33"
-vertical_alignment = 1
-
-[node name="CounterField" type="Panel" parent="GUI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -240.0
-offset_top = 37.0
-offset_right = -56.0
-offset_bottom = 76.0
-grow_horizontal = 0
-theme = SubResource("Theme_gt6kp")
-
-[node name="Label" type="Label" parent="GUI/CounterField"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_pxsdy")
-theme_override_font_sizes/font_size = 32
-text = "999999 pts"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Buffs" type="Control" parent="GUI"]
-visible = false
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 52.0
-offset_top = -181.0
-offset_right = 373.0
-offset_bottom = -130.0
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Buffs"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -21.0
-offset_right = 318.0
-offset_bottom = 21.0
-grow_vertical = 2
-
-[node name="1" type="TextureRect" parent="GUI/Buffs/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("11_pvfw1")
-stretch_mode = 5
-
-[node name="2" type="TextureRect" parent="GUI/Buffs/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("11_pvfw1")
-stretch_mode = 5
-
-[node name="3" type="TextureRect" parent="GUI/Buffs/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("11_pvfw1")
-stretch_mode = 5
-
-[node name="4" type="TextureRect" parent="GUI/Buffs/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("11_pvfw1")
-stretch_mode = 5
-
-[node name="Skill" type="Control" parent="GUI"]
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 52.0
-offset_top = -124.0
-offset_right = 282.0
-offset_bottom = -50.0
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Skill"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="1" type="TextureRect" parent="GUI/Skill/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("12_f74yy")
-stretch_mode = 5
-
-[node name="Texture" type="TextureRect" parent="GUI/Skill/HBoxContainer/1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 15.0
-offset_right = -15.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-texture = ExtResource("7_ockte")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="2" type="TextureRect" parent="GUI/Skill/HBoxContainer"]
-modulate = Color(1, 1, 1, 0.5)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("12_f74yy")
-stretch_mode = 5
-
-[node name="Texture" type="TextureRect" parent="GUI/Skill/HBoxContainer/2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 15.0
-offset_right = -15.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-texture = ExtResource("7_ockte")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="3" type="TextureRect" parent="GUI/Skill/HBoxContainer"]
-modulate = Color(1, 1, 1, 0.25)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("12_f74yy")
-stretch_mode = 5
-
-[node name="Texture" type="TextureRect" parent="GUI/Skill/HBoxContainer/3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 15.0
-offset_right = -15.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-texture = ExtResource("7_ockte")
-expand_mode = 1
-stretch_mode = 5
+[node name="GUI" parent="." instance=ExtResource("2_ussom")]
 
 [node name="Session" parent="." instance=ExtResource("9_6rekq")]
 
@@ -314,9 +28,15 @@ position_smoothing_speed = 1.0
 [node name="Player" parent="." instance=ExtResource("15_i1y8m")]
 position = Vector2(645, 400)
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Dummy" type="StaticBody2D" parent="."]
 position = Vector2(950, 428)
 scale = Vector2(0.59375, 0.59375)
+script = ExtResource("6_rn58f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dummy"]
+shape = SubResource("RectangleShape2D_lsnpd")
+
+[node name="Icon" type="Sprite2D" parent="Dummy"]
 texture = ExtResource("7_ockte")
 
 [node name="Icon2" type="Sprite2D" parent="."]

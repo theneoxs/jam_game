@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
+var hp = 100
+var max_hp = 100
+
 const SPEED = 250.0
 const DASH_SPEED = 600.0
 const DASH_DURATION = 0.2
-const DASH_COOLDOWN = 1.0
+const DASH_COOLDOWN = 0.5
 var is_dashing = false
 var dash_timer = 0.0
 var cooldown_timer = 0.0
@@ -14,6 +17,7 @@ var dash_vector = Vector2()
 
 func _ready():
 	anim_play.current_animation = "idle"
+	hp = max_hp
 
 func _physics_process(delta):
 	var direction = Vector2()

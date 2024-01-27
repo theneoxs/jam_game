@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2acmi3hm44rs"]
+[gd_scene load_steps=7 format=3 uid="uid://d2acmi3hm44rs"]
 
 [ext_resource type="Script" path="res://Scenes/main_scene.gd" id="1_vm1sk"]
 [ext_resource type="Texture2D" uid="uid://co7ipp52uimuv" path="res://Res/button.png" id="2_lue7m"]
 [ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="3_5l8g7"]
+[ext_resource type="Texture2D" uid="uid://dxy7aus7y5qft" path="res://Res/button pressed.png" id="3_wb142"]
+[ext_resource type="Texture2D" uid="uid://dqn2gna42tmyb" path="res://Res/button hover.png" id="4_cvm0c"]
 [ext_resource type="PackedScene" uid="uid://dip6jtbj66qmp" path="res://Scenes/dialogue_head.tscn" id="4_vkkd2"]
 
 [node name="MainScene" type="Control"]
@@ -40,6 +42,8 @@ alignment = 2
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture_normal = ExtResource("2_lue7m")
+texture_pressed = ExtResource("3_wb142")
+texture_hover = ExtResource("4_cvm0c")
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="VBoxContainer/StartBtn"]
@@ -59,6 +63,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture_normal = ExtResource("2_lue7m")
+texture_pressed = ExtResource("3_wb142")
+texture_hover = ExtResource("4_cvm0c")
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="VBoxContainer/LeaderBtn"]
@@ -77,7 +83,11 @@ vertical_alignment = 1
 [node name="SettingBtn" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("2_lue7m")
+texture_pressed = ExtResource("3_wb142")
+texture_hover = ExtResource("4_cvm0c")
+texture_disabled = ExtResource("3_wb142")
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="VBoxContainer/SettingBtn"]
@@ -97,6 +107,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture_normal = ExtResource("2_lue7m")
+texture_pressed = ExtResource("3_wb142")
+texture_hover = ExtResource("4_cvm0c")
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="VBoxContainer/EndBtn"]
@@ -112,6 +124,31 @@ text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ChangeBtn" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+offset_left = 1041.0
+offset_top = 594.0
+offset_right = 1191.0
+offset_bottom = 644.0
+texture_normal = ExtResource("2_lue7m")
+texture_pressed = ExtResource("3_wb142")
+texture_hover = ExtResource("4_cvm0c")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="ChangeBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("3_5l8g7")
+text = "Change"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 121.0
@@ -122,6 +159,41 @@ theme_override_colors/font_color = Color(0.933333, 0.945098, 0.960784, 1)
 theme_override_fonts/font = ExtResource("3_5l8g7")
 theme_override_font_sizes/font_size = 60
 text = "Den's Mayhem"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1015.0
+offset_top = 500.0
+offset_right = -60.0
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_5l8g7")
+text = "Current Username"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UserName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1015.0
+offset_top = 544.0
+offset_right = -60.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_5l8g7")
+text = "lksldjasdjas"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
 
 [node name="DialogueHead" parent="." instance=ExtResource("4_vkkd2")]
 layout_mode = 1
@@ -138,3 +210,4 @@ grow_horizontal = 0
 [connection signal="pressed" from="VBoxContainer/LeaderBtn" to="." method="_on_leader_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/EndBtn" to="." method="_on_end_btn_pressed"]
+[connection signal="pressed" from="ChangeBtn" to="." method="_on_change_btn_pressed"]
