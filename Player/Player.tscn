@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://xvdvkmrmx52"]
+[gd_scene load_steps=7 format=3 uid="uid://xvdvkmrmx52"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_dljk5"]
 [ext_resource type="Texture2D" uid="uid://ck0igiwyl5jtk" path="res://Res/icon.svg" id="2_xr66c"]
@@ -16,8 +16,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i5n2g"]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6dlem"]
 radius = 18.0
 height = 58.0
@@ -28,28 +26,6 @@ script = ExtResource("1_dljk5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3125, 0.3125)
 sprite_frames = SubResource("SpriteFrames_12t12")
-
-[node name="Idle" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0.999999, 0.5)
-scale = Vector2(36, 59)
-texture = SubResource("PlaceholderTexture2D_i5n2g")
-
-[node name="Walk" type="Sprite2D" parent="."]
-visible = false
-
-[node name="Jerk" type="Sprite2D" parent="."]
-visible = false
-
-[node name="Death" type="Sprite2D" parent="."]
-visible = false
-
-[node name="Action" type="Sprite2D" parent="."]
-visible = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6dlem")
