@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmuwadnfnrdfq"]
+
+[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="1_1fs6i"]
+[ext_resource type="Script" path="res://Scenes/row_table.gd" id="1_q5b80"]
+
+[node name="Row" type="HBoxContainer"]
+alignment = 1
+script = ExtResource("1_q5b80")
+
+[node name="Position" type="Control" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Position"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1fs6i")
+theme_override_font_sizes/font_size = 20
+text = "###"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Position"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0, 0, 0, 1)
+editor_only = false
+
+[node name="Name" type="Control" parent="."]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1fs6i")
+theme_override_font_sizes/font_size = 20
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0, 0, 0, 1)
+editor_only = false
+
+[node name="Score" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Score"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1fs6i")
+theme_override_font_sizes/font_size = 20
+text = "Score
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Score"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0, 0, 0, 1)
+editor_only = false

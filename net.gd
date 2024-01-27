@@ -14,6 +14,8 @@ var submit_score_http = HTTPRequest.new()
 var set_name_http = HTTPRequest.new()
 var get_name_http = HTTPRequest.new()
 
+var in_progress = false
+
 func _ready():
 	#Показ имени пользователя (сохраненного)
 	#$NameLine.text = player_name
@@ -28,6 +30,7 @@ func add_http_sender(http_sender, func_connect, url, header, method = HTTPClient
 
 #Инициация соединения
 func _authentication_request():
+	in_progress = true
 	# Проверка существования сессии пользователя (авторизовывался ли он уже?)
 	var player_session_exists = false
 	var player_identifier : String
@@ -85,13 +88,14 @@ func _on_authentication_request_completed(result, response_code, headers, body):
 	
 	# Очистка
 	auth_http.queue_free()
+	in_progress = false
 	# Получение лидерборды
 	_get_leaderboards()
 
 #Получение всей лидерборды
 func _get_leaderboards():
 	print("Getting leaderboards")
-	var url = "https://api.lootlocker.io/game/leaderboards/"+leaderboard_key+"/list?count=10"
+	var url = "https://api.lootlocker.io/game/leaderboards/"+leaderboard_key+"/list?count=100"
 	var headers = ["Content-Type: application/json", "x-session-token:"+session_token]
 	
 	leaderboard_http = HTTPRequest.new()
@@ -105,13 +109,17 @@ func _on_leaderboard_request_completed(result, response_code, headers, body):
 	print(json.get_data())
 	
 	# Форматирование лидерборды
-	var leaderboardFormatted = ""
+	var leaderboardFormatted = []
 	for n in json.get_data().items.size():
-		leaderboardFormatted += str(json.get_data().items[n].rank)+str(". ")
-		leaderboardFormatted += str(json.get_data().items[n].player.name)+str(" - ")
-		leaderboardFormatted += str(json.get_data().items[n].score)+str("\n")
+		var data = {
+			"num" : str(json.get_data().items[n].rank),
+			"name" : str(json.get_data().items[n].player.name),
+			"score" : str(json.get_data().items[n].score),
+		}
+		leaderboardFormatted.append(data)
 	# Печать форматированной лидерборды
 	print(leaderboardFormatted)
+	Global.data_leaderboard = leaderboardFormatted
 	
 	leaderboard_http.queue_free()
 

@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2bw4ni3woite"]
+
+[ext_resource type="Script" path="res://Scenes/leaderboard.gd" id="1_4wpru"]
+[ext_resource type="Texture2D" uid="uid://co7ipp52uimuv" path="res://Res/button.png" id="2_mvy0n"]
+[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="3_jio4f"]
+[ext_resource type="PackedScene" uid="uid://bmuwadnfnrdfq" path="res://Scenes/row_table.tscn" id="4_s1333"]
+[ext_resource type="PackedScene" uid="uid://bkl56wvnoqfcv" path="res://Scenes/loader.tscn" id="5_a0n7k"]
+
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4wpru")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.470588, 0.513726, 0.603922, 1)
+
+[node name="EndBtn" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -120.0
+offset_right = 250.0
+offset_bottom = -70.0
+grow_vertical = 0
+texture_normal = ExtResource("2_mvy0n")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="EndBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("3_jio4f")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpdateBtn" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -120.0
+offset_right = -112.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("2_mvy0n")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="UpdateBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("3_jio4f")
+text = "Update
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -284.0
+offset_right = 525.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Row" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_s1333")]
+layout_mode = 2
+
+[node name="Loader" parent="." instance=ExtResource("5_a0n7k")]
+layout_mode = 1
+
+[connection signal="pressed" from="EndBtn" to="." method="_on_end_btn_pressed"]
+[connection signal="pressed" from="UpdateBtn" to="." method="_on_update_btn_pressed"]

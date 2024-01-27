@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="jam_game"
-run/main_scene="res://Scenes/main_scene.tscn"
+run/main_scene="res://Scenes/Start_screen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Res/icon.svg"
 
@@ -27,6 +27,10 @@ window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[gui]
+
+common/snap_controls_to_pixels=false
 
 [rendering]
 

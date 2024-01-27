@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://dip6jtbj66qmp"]
+
+[ext_resource type="Script" path="res://Scenes/dialogue_head.gd" id="1_dmg3c"]
+[ext_resource type="Texture2D" uid="uid://b0pq4g5ut2arq" path="res://Res/benis.png" id="1_lclbw"]
+[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="3_i0y4c"]
+[ext_resource type="Texture2D" uid="uid://c8w030vdh2n1x" path="res://Res/dialog_left.png" id="3_s8bpo"]
+[ext_resource type="Texture2D" uid="uid://cm25hhjfdnugi" path="res://Res/dialog_centr.png" id="4_kwfo2"]
+[ext_resource type="Texture2D" uid="uid://dlkfbsnrbxp3n" path="res://Res/dialog_right.png" id="5_euyo1"]
+
+[node name="DialogueHead" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 194.0
+offset_bottom = 201.0
+script = ExtResource("1_dmg3c")
+
+[node name="Head" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -201.0
+offset_right = -17.0
+offset_bottom = 184.0
+grow_horizontal = 0
+pivot_offset = Vector2(98, 106)
+texture = ExtResource("1_lclbw")
+flip_h = true
+
+[node name="TextField" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -354.0
+offset_top = 32.0
+offset_right = -214.0
+offset_bottom = 172.0
+grow_horizontal = 0
+color = Color(0.756863, 0.756863, 0.756863, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextField"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_right = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="LeftRect" type="TextureRect" parent="TextField/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_s8bpo")
+stretch_mode = 6
+
+[node name="CentralRect" type="TextureRect" parent="TextField/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_kwfo2")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RightRect" type="TextureRect" parent="TextField/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_euyo1")
+stretch_mode = 6
+
+[node name="ReferenceRect" type="ReferenceRect" parent="TextField"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 3.0
+editor_only = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextField"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 14.0
+offset_right = -9.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 6
+theme_override_fonts/normal_font = ExtResource("3_i0y4c")
+theme_override_font_sizes/normal_font_size = 12
+text = "C'mob, buddy, i need to exxxperiment!"
+
+[node name="ShowDiagTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="HideDiagTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="ShowDiagTimer" to="." method="_on_show_diag_timer_timeout"]
+[connection signal="timeout" from="HideDiagTimer" to="." method="_on_hide_diag_timer_timeout"]
