@@ -309,7 +309,22 @@ stretch_mode = 5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
-position_smoothing_speed = 25.0
+position_smoothing_speed = 1.0
 
 [node name="Player" parent="." instance=ExtResource("15_i1y8m")]
 position = Vector2(645, 400)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(950, 428)
+scale = Vector2(0.59375, 0.59375)
+texture = ExtResource("7_ockte")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(312, 240)
+scale = Vector2(0.59375, 0.59375)
+texture = ExtResource("7_ockte")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(533, 557)
+scale = Vector2(0.59375, 0.59375)
+texture = ExtResource("7_ockte")
