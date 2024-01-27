@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2flkakoy0djv"]
 
-[ext_resource type="Texture2D" uid="uid://bi0dqbxj4n0n" path="res://Res/weapon.png" id="1_kuhuv"]
+[ext_resource type="Texture2D" uid="uid://b484r7p7ey14w" path="res://Res/weapon.png" id="1_kuhuv"]
 [ext_resource type="Script" path="res://Player/gun.gd" id="1_rsbha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13rx6"]
