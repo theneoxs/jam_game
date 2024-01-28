@@ -29,7 +29,7 @@ func _process(delta):
 		rotation_degrees += 360
 	
 	if is_attacked and path_point.progress_ratio < 1:
-		path_point.progress_ratio += move_coef*0.1
+		path_point.progress_ratio += move_coef*0.9
 		if path_point.progress_ratio < 0.5:
 			delta_move_coef = 0.1
 		else:

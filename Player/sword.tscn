@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cphc1ofhmsrc7"]
 
 [ext_resource type="Script" path="res://Player/sword.gd" id="1_d3ox4"]
-[ext_resource type="Texture2D" uid="uid://bi0dqbxj4n0n" path="res://Res/weapon.png" id="2_3n1nn"]
+[ext_resource type="Texture2D" uid="uid://csha235nvjpy6" path="res://Res/weapon.png" id="2_3n1nn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dyj0"]
 atlas = ExtResource("2_3n1nn")
@@ -9,7 +9,7 @@ region = Rect2(62.9416, 18.628, 31.121, 10.4462)
 
 [sub_resource type="Curve2D" id="Curve2D_5l67k"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 28, 35, 0, 0, 0, 0, 46, 19, 0, 0, 0, 0, 53, 1, 0, 0, 0, 0, 44, -18, 0, 0, 0, 0, 28, -35)
+"points": PackedVector2Array(0, 0, 0, 0, -77.5556, 22.5, 0, 0, 0, 0, 47.4444, 17.5, 0, 0, 0, 0, 53, 1, 0, 0, 0, 0, 44, -18, 0, 0, 0, 0, 28, -35)
 }
 point_count = 5
 
@@ -17,22 +17,23 @@ point_count = 5
 script = ExtResource("1_d3ox4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(10, 0)
+position = Vector2(15, 0)
 scale = Vector2(1.5375, 1.5375)
 texture = SubResource("AtlasTexture_2dyj0")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
+position = Vector2(-9.7561, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Area2D"]
-polygon = PackedVector2Array(-5.85366, 1.95122, -2.60163, 1.95122, 12.3577, 1.95122, 14.9593, 0, 12.3577, -1.95122, -2.60163, -1.95122, -5.85366, -1.95122)
+polygon = PackedVector2Array(-4.55285, 1.95122, -2.60163, 3.90244, 8.45528, 3.90244, 21.4634, 3.90244, 35.1219, 1.95122, 35.1219, -0.650406, 35.1219, -3.90244, 11.0569, -5.20325, -3.25203, -4.55285, -4.55285, -1.95122)
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(5, -1)
-scale = Vector2(1.43036, 1.43035)
+position = Vector2(22.92, -1)
+scale = Vector2(0.36, 0.4)
 curve = SubResource("Curve2D_5l67k")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(28, 35)
-rotation = -0.726642
+position = Vector2(-77.5556, 22.5)
+rotation = -0.0399787
 
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
