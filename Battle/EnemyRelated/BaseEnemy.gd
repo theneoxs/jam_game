@@ -13,6 +13,9 @@ var modification:Object
 var enemyType
 var HpBar:ProgressBar
 
+var player: Node2D = null
+var move_speed: float = 250.0
+
 func setParams():
 	var diffMod = randf_range(0.1, get_node("/root/Game/Session").diff_modificator)
 	if diffMod < 0.1:
@@ -28,6 +31,7 @@ func setParams():
 func _ready():
 	setParams()
 	print(score)
+	player = get_node("/root/Game/Player")
 
 func _init():
 	var a = randi_range(0,1)
@@ -39,8 +43,13 @@ func _init():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	moveTowardsPlayer(delta)
 
+func moveTowardsPlayer(delta):
+	if player != null:
+		var direction = (player.global_position - global_position).normalized()
+		var velocity = direction * move_speed * delta
+		translate(velocity)
 
 func attack():
 	pass
