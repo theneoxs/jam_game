@@ -4,6 +4,7 @@ var user_score = 0
 var percent_acid = 0.0
 var timer = 0
 var wave = 0
+var enemyPerWave:int = 10
 var diff_modificator = 0
 
 func _ready():
@@ -24,7 +25,9 @@ func increace_score(value):
 
 func new_wave(inc = 1):
 	wave += inc
+	enemyPerWave *=2
 	get_parent().gui.set_wave(wave, int(diff_modificator))
+	return enemyPerWave
 
 func save_score():
 	Net.update_data(Global.user_name, user_score)

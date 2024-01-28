@@ -45,7 +45,7 @@ func attack():
 	
 func death():
 	get_node("/root/Game/Session").increace_score(score)
-	
+	get_tree().call_group("Game", "_on_enemy_killed")
 	queue_free()
 	
 func dropAbbility():

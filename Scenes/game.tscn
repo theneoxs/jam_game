@@ -11,7 +11,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lsnpd"]
 size = Vector2(121.263, 124.632)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["Game"]]
 script = ExtResource("1_403he")
 metadata/_edit_vertical_guides_ = [55.0]
 
@@ -75,3 +75,7 @@ texture = ExtResource("7_ockte")
 position = Vector2(533, 557)
 scale = Vector2(0.59375, 0.59375)
 texture = ExtResource("7_ockte")
+
+[node name="Enemies" type="Node" parent="."]
+
+[connection signal="enemyKilled" from="." to="." method="_on_enemy_killed"]
