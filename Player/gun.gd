@@ -1,11 +1,15 @@
 extends Node2D
 
 var bullet = preload("res://Player/bullet.tscn")
-
 @onready var sprite = $Sprite2D
 @onready var point = $Marker2D
 
+var death = false
+
 func _process(delta):
+	if death:
+		return
+	
 	var mouse_position = get_global_mouse_position()
 	look_at(mouse_position)
 	
@@ -25,3 +29,10 @@ func _process(delta):
 		new_bullet.global_position = point.global_position
 		new_bullet.push(Vector2(700, 0).rotated(rotation))
 		new_bullet.rotation = rotation
+
+func _test(value):
+	print("Received value:", value)
+
+
+func _on_player_death(bool):
+	death = bool

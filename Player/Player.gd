@@ -10,6 +10,9 @@ const DASH_COOLDOWN = 0.5
 var is_dashing = false
 var dash_timer = 0.0
 var cooldown_timer = 0.0
+var is_dead = false
+
+signal death(bool)
 
 var dash_vector = Vector2()
 @onready var anim_play = $AnimationPlayer
@@ -24,6 +27,9 @@ func show_hp():
 	get_parent().gui.set_hp_value(hp)
 
 func _physics_process(delta):
+	if is_dead:
+		return
+	
 	var direction = Vector2()
 
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -66,4 +72,15 @@ func _physics_process(delta):
 	else:
 		velocity = direction * SPEED
 	
+	if Input.is_action_pressed("ui_end"):
+		die()
 	move_and_slide()
+
+
+func die():
+	hp = 0
+	get_parent().gui.set_hp_value(hp)
+	is_dead=true
+	emit_signal("death", is_dead)
+	
+	

@@ -70,3 +70,7 @@ func game_over_mode():
 
 func _on_enemy_killed():
 	killedinWave += 1 # Replace with function body.
+
+
+func _on_player_death(bool):
+	game_over_mode()

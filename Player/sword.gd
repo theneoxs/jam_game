@@ -9,7 +9,12 @@ var move_coef = 0
 var delta_move_coef = 0.1
 var damage = 100
 
+var death = false
+
 func _process(delta):
+	if death:
+		return
+	
 	var mouse_position = get_global_mouse_position()
 	look_at(mouse_position)
 	
@@ -51,3 +56,7 @@ func _on_area_2d_body_entered(body):
 		print(body.name)
 	if body.get_parent() is Enemy:
 			body.get_parent().getHit(damage)
+
+
+func _on_player_death(bool):
+	death = bool
