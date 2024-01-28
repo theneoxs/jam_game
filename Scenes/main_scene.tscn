@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2acmi3hm44rs"]
 
 [ext_resource type="Script" path="res://Scenes/main_scene.gd" id="1_vm1sk"]
-[ext_resource type="Texture2D" uid="uid://kamkb7111hi1" path="res://Res/button.png" id="2_lue7m"]
-[ext_resource type="FontFile" uid="uid://ckhk75yce8vfd" path="res://Res/aseprite-remix.ttf" id="3_5l8g7"]
-[ext_resource type="Texture2D" uid="uid://6enr74hpmapv" path="res://Res/button pressed.png" id="3_wb142"]
-[ext_resource type="Texture2D" uid="uid://bqsbk8k6untr0" path="res://Res/button hover.png" id="4_cvm0c"]
+[ext_resource type="Texture2D" uid="uid://co7ipp52uimuv" path="res://Res/button.png" id="2_lue7m"]
+[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="3_5l8g7"]
+[ext_resource type="Texture2D" uid="uid://dxy7aus7y5qft" path="res://Res/button pressed.png" id="3_wb142"]
+[ext_resource type="Texture2D" uid="uid://dqn2gna42tmyb" path="res://Res/button hover.png" id="4_cvm0c"]
 [ext_resource type="PackedScene" uid="uid://dip6jtbj66qmp" path="res://Scenes/dialogue_head.tscn" id="4_vkkd2"]
 
 [node name="MainScene" type="Control"]

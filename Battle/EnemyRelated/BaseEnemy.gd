@@ -14,18 +14,20 @@ var enemyType
 var HpBar:ProgressBar
 
 func setParams():
-	var diffMod = get_node("/root/Game/Session").diff_modificator
+	var diffMod = randf_range(0.1, get_node("/root/Game/Session").diff_modificator)
+	if diffMod < 0.1:
+		diffMod = 0.1
 	hp *= diffMod
-	speed *=diffMod
+	speed *= diffMod
 	attackDelay *= diffMod
-	damage *=diffMod
-	score = (hp + speed + attackDelay + damage) / 4
+	damage *= diffMod
+	score = (hp*2 + speed + attackDelay + damage) / 4
 	$"HP BAR".set_max(hp)
 	$"HP BAR".set_value(hp)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setParams()
-	pass # Replace with function body.
+	print(score)
 
 func _init():
 	var a = randi_range(0,1)
@@ -44,6 +46,7 @@ func attack():
 	pass
 	
 func death():
+	print(score)
 	get_node("/root/Game/Session").increace_score(score)
 	get_tree().call_group("Game", "_on_enemy_killed")
 	queue_free()

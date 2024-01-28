@@ -7,6 +7,7 @@ var is_attacked = false
 
 var move_coef = 0
 var delta_move_coef = 0.1
+var damage = 100
 
 func _process(delta):
 	var mouse_position = get_global_mouse_position()
@@ -29,7 +30,7 @@ func _process(delta):
 		else:
 			delta_move_coef = -0.1
 		move_coef += delta_move_coef*0.1
-		sprite.position = path_point.position
+		sprite.global_position = path_point.global_position
 		sprite.rotation_degrees = 45 - 90 * path_point.progress_ratio
 	if path_point.progress_ratio >= 0.9:
 		is_attacked = false
@@ -48,3 +49,5 @@ func attack():
 func _on_area_2d_body_entered(body):
 	if body.name != "Player":
 		print(body.name)
+	if body.get_parent() is Enemy:
+			body.get_parent().getHit(damage)

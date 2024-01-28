@@ -37,8 +37,8 @@ func updateWave():
 	gui.set_wave(session_data.wave, session_data.diff_modificator)
 
 func _process(delta):
-	camera.position = player.global_position
-	if spawnCooldown != 0:
+	camera.position = player.global_position + (get_global_mouse_position() - player.global_position) * 0.25
+	if spawnCooldown > 0:
 		spawnCooldown -= 1
 	else:
 		spawnCooldown = 60
@@ -53,7 +53,7 @@ func spawnEnemy():
 		var new_enemy = enemy.instantiate()
 		$Enemies.add_child(new_enemy)
 		new_enemy.global_position = spawnInRandomPoint(points)	
-		spawnedEnemy +=1
+		spawnedEnemy += 1
 	elif killedinWave == spawnedEnemy:
 		updateWave()
 	
@@ -69,4 +69,4 @@ func game_over_mode():
 
 
 func _on_enemy_killed():
-	killedinWave +=1 # Replace with function body.
+	killedinWave += 1 # Replace with function body.

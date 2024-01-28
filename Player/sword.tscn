@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cphc1ofhmsrc7"]
 
 [ext_resource type="Script" path="res://Player/sword.gd" id="1_d3ox4"]
-[ext_resource type="Texture2D" uid="uid://b484r7p7ey14w" path="res://Res/weapon.png" id="2_3n1nn"]
+[ext_resource type="Texture2D" uid="uid://bi0dqbxj4n0n" path="res://Res/weapon.png" id="2_3n1nn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dyj0"]
 atlas = ExtResource("2_3n1nn")
@@ -27,6 +27,8 @@ texture = SubResource("AtlasTexture_2dyj0")
 polygon = PackedVector2Array(-5.85366, 1.95122, -2.60163, 1.95122, 12.3577, 1.95122, 14.9593, 0, 12.3577, -1.95122, -2.60163, -1.95122, -5.85366, -1.95122)
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2(5, -1)
+scale = Vector2(1.43036, 1.43035)
 curve = SubResource("Curve2D_5l67k")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]

@@ -14,6 +14,7 @@ extends CanvasLayer
 var timer = 0
 
 func set_toxic_value(value):
+	#print(value)
 	toxic_bar.value = int(value)
 	toxic_bar_text.text = "{value}/{max}".format({"value" : int(value), "max" : toxic_bar.max_value})
 
@@ -36,7 +37,7 @@ func _process(delta):
 	timer_text.text = "{mm}:{ss}".format({"mm" : "%02d" % (int(timer)/60), "ss" : "%02d" % (int(timer) % 60)})
 
 func set_wave(num_wave, num_diff = 0):
-	wave_text.text = "Wave: {wave} ({diff})".format({"wave" : num_wave, "diff" : num_diff})
+	wave_text.text = "Wave: {wave} ({diff})".format({"wave" : num_wave, "diff" : "%.2f" % num_diff})
 
 func set_score(value):
 	score.text = str(value) + " pts"
