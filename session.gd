@@ -16,7 +16,7 @@ func _ready():
 
 func _process(delta):
 	timer += delta
-	diff_modificator = log(timer / 30) + (wave * 0.2)
+	diff_modificator = log(timer / 15) + (wave * 0.1)
 	if diff_modificator < 0.1:
 		diff_modificator = 0.1
 
@@ -31,7 +31,7 @@ func increace_score(value):
 
 func new_wave(inc = 1):
 	wave += inc
-	enemyPerWave = baseEnemyPerWave * diff_modificator
+	enemyPerWave = baseEnemyPerWave * diff_modificator * 0.5
 	get_parent().gui.set_wave(wave, int(diff_modificator))
 	return enemyPerWave
 

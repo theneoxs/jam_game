@@ -1,9 +1,10 @@
 extends TextureRect
 
 @onready var timer = $Timer
+@onready var pict = $picture
 
 func set_icon(icon):
-	texture = load(icon)
+	pict.texture = load(icon)
 
 func set_timer(time):
 	timer.wait_time = time

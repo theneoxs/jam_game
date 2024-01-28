@@ -5,7 +5,7 @@ var type_skill = 0
 var image_skill = ""
 var description_skill = ""
 
-var combine_modify_skill = 0
+var combine_modify_skill = 1
 
 func _init():
 	var data = {

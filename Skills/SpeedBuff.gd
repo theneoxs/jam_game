@@ -1,15 +1,16 @@
 extends Node
 
-var picture = "res://Res/icon.svg"
+var picture = "res://Res/effects/speed boost.png"
 var time = 5
 @onready var timer = $Timer
 
 var player_speed = 0
+var modify = 1
 
-func _ready():
+func start():
 	timer.wait_time = time
 	timer.start()
-	player_speed = get_parent().player.SPEED
+	player_speed = get_parent().player.SPEED * modify * 0.5
 	
 	get_parent().player.SPEED += player_speed
 

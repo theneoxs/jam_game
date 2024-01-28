@@ -11,7 +11,7 @@ func _ready():
 	set_data({
 		"name_skill" : "Shotgun",
 		"type_skill" : 5,
-		"image_skill" : "res://Res/icon.svg",
+		"image_skill" : "res://Res/effects/wave.png",
 		"description_skill" : "Shoot 5 bullet 3 time"
 	})
 
@@ -20,7 +20,7 @@ func release():
 		for j in range(-30, 31, 15):
 			var new_bullet = bullet.instantiate()
 			Bullet.add_child(new_bullet)
-			new_bullet.set_params(bullet_damage, bullet_speed, bullet_size)
+			new_bullet.set_params(bullet_damage * combine_modify_skill, bullet_speed, bullet_size)
 			new_bullet.global_position = get_parent().link_player.gun.point.global_position
 			var rotate_player = get_parent().link_player.gun.rotation
 			new_bullet.push(push_vector.rotated(rotate_player + deg_to_rad(j)))

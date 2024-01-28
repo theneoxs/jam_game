@@ -12,7 +12,9 @@ var buff_list = {
 
 @onready var session = get_parent().get_node("Session")
 
-func add_buff(num):
+func add_buff(num, modify = 1):
 	var new_buff = buff_list[num].instantiate()
 	add_child(new_buff)
+	new_buff.modify = modify
+	new_buff.start()
 	get_parent().gui.create_buff(new_buff.name, new_buff.picture, new_buff.time)

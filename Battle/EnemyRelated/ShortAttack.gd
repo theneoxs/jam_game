@@ -19,6 +19,9 @@ var attack_delay = 2.55
 
 func _ready():
 	player = get_node("/root/Game/Player")
+	attack_delay -= randf_range(0.1, get_node("/root/Game/Session").diff_modificator) * 0.5
+	if attack_delay < 0.1:
+		attack_delay = 0.1
 
 func _process(delta):
 	if death:

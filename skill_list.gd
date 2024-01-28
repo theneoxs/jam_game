@@ -6,12 +6,26 @@ var skill_list_queue = []
 
 @onready var buff_queue = get_parent().get_node("BuffQueue")
 
+@onready var common_skills = [$Skill1, $Skill2, $Skill3, $Skill4]
+@onready var rare_skills = [$Skill5]
+
 func _ready():
 	randomize()
 	skill_list_queue.append($Skill5)
-	skill_list_queue.append($Skill5)
-	skill_list_queue.append($Skill5)
-	skill_list_queue.append($Skill5)
+	skill_list_queue.append($Skill1)
+	skill_list_queue.append($Skill2)
+	skill_list_queue.append($Skill3)
+	skill_list_queue.append($Skill4)
+
+func get_new_skill():
+	var chance_drop = randi_range(0, 100)
+	if chance_drop > 60:
+		var chance_rare_drop = randi_range(0, 10)
+		if chance_rare_drop >= 7:
+			add_skill(rare_skills[randi_range(0, len(rare_skills)-1)])
+		else:
+			add_skill(common_skills[randi_range(0, len(common_skills)-1)])
+		get_parent().gui.change_skill(skill_list_queue.slice(0, 3))
 
 func _process(delta):
 	if Input.is_action_just_pressed("skill_pressed"):

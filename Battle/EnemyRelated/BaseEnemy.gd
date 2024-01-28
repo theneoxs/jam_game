@@ -22,7 +22,9 @@ func setParams():
 		diffMod = 0.1
 	hp *= diffMod
 	if type_range == 0:
-		speed = 100
+		speed += 100*diffMod*0.25
+		if speed > 230:
+			speed = 230
 	else:
 		speed += speed*diffMod*0.5
 		if speed > 300:
@@ -37,6 +39,7 @@ func setParams():
 func _ready():
 	setParams()
 	player = get_node("/root/Game/Player")
+	$AnimationPlayer.current_animation = "walk"
 
 func _init():
 	type_range = randi_range(0,1)
@@ -53,6 +56,10 @@ func _process(delta):
 func moveTowardsPlayer(delta):
 	if player != null:
 		var direction = (player.global_position - global_position).normalized()
+		if direction.x > 0:
+			$Icon2.flip_h = false
+		else:
+			$Icon2.flip_h = true
 		var velocity = direction * speed * delta
 		translate(velocity)
 
@@ -62,10 +69,11 @@ func attack():
 func death():
 	get_node("/root/Game/Session").increace_score(score)
 	get_tree().call_group("Game", "_on_enemy_killed")
+	dropAbbility()
 	queue_free()
 	
 func dropAbbility():
-	pass
+	get_parent().get_parent().skill_list.get_new_skill()
 	
 func move():
 	pass

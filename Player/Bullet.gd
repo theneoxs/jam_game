@@ -4,18 +4,26 @@ extends RigidBody2D
 @export var speed : float = 7.0
 @export var size : float = 1.0
 @export var isBomb : bool = false
-var projectileOwner : Object
+var projectileOwner = null
 var enemy : Enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#if projectileOwner == player
 	$AnimationPlayer.current_animation = "bullet"
 
-func set_params(dmg, spd, siz):
+func set_params(dmg, spd, siz, owner = null):
 	damage = dmg
 	speed = spd
 	size = siz
+	if owner != null:
+		projectileOwner = owner
+		if projectileOwner.name == "Player":
+			$AnimationPlayer.current_animation = "bullet"
+			collision_mask = 2
+	
+		if projectileOwner.name == "RangeAttack":
+			$AnimationPlayer.current_animation = "bullet_enemy"
+			collision_mask = 1
 
 func push(vector):
 	linear_velocity = vector * speed

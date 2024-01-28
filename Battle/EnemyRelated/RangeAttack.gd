@@ -24,6 +24,9 @@ var push_vector = Vector2(100, 0)
 
 func _ready():
 	player = get_node("/root/Game/Player")
+	attack_delay -= randf_range(0.1, get_node("/root/Game/Session").diff_modificator) * 0.5
+	if attack_delay < 0.25:
+		attack_delay = 0.25
 
 func _process(delta):
 	if death:
@@ -42,7 +45,7 @@ func _process(delta):
 	if attack_timer > 0.0:
 		attack_timer -= delta
 
-	if  can_attack:
+	if can_attack:
 		_attack()
 		can_attack = false
 		attack_timer = attack_delay
@@ -57,7 +60,7 @@ func _attack():
 	
 	var new_bullet = bullet.instantiate()
 	Bullet.add_child(new_bullet)
-	new_bullet.set_params(bullet_damage, bullet_speed, bullet_size)
+	new_bullet.set_params(bullet_damage, bullet_speed, bullet_size, self)
 	new_bullet.global_position = point.global_position
 	new_bullet.push(push_vector.rotated(rotation))
 	new_bullet.rotation = rotation

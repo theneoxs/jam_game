@@ -54,7 +54,7 @@ func spawnEnemy():
 		$Enemies.add_child(new_enemy)
 		new_enemy.global_position = spawnInRandomPoint(points)	
 		spawnedEnemy += 1
-	elif killedinWave == spawnedEnemy:
+	elif killedinWave >= spawnedEnemy:
 		updateWave()
 	
 func spawnInRandomPoint(area:Node2D):

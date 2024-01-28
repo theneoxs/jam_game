@@ -18,7 +18,7 @@ script = ExtResource("1_wlw0a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(19, 13)
+position = Vector2(12.3578, 9.53674e-07)
 scale = Vector2(1.24889, 1.68438)
 texture = SubResource("AtlasTexture_go6mx")
 
@@ -29,7 +29,7 @@ position = Vector2(-9.7561, 0)
 polygon = PackedVector2Array(-4.55285, 1.95122, -2.60163, 3.90244, 8.45528, 3.90244, 21.4634, 3.90244, 35.1219, 1.95122, 35.1219, -0.650406, 35.1219, -3.90244, 11.0569, -5.20325, -3.25203, -4.55285, -4.55285, -1.95122)
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(22.92, -1)
+position = Vector2(16.2778, -14)
 scale = Vector2(0.36, 0.4)
 curve = SubResource("Curve2D_tspw1")
 

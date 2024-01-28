@@ -1,29 +1,76 @@
-[gd_scene load_steps=4 format=3 uid="uid://dacv7f648vx8v"]
+[gd_scene load_steps=7 format=3 uid="uid://dacv7f648vx8v"]
 
 [ext_resource type="Script" path="res://Battle/EnemyRelated/BaseEnemy.gd" id="1_ltjs2"]
-[ext_resource type="Texture2D" uid="uid://ck0igiwyl5jtk" path="res://Res/icon.svg" id="2_j35ix"]
+[ext_resource type="Texture2D" uid="uid://crci1ots1g88" path="res://Res/players blue x1.png" id="2_pvxuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvaav"]
 size = Vector2(34.8507, 23.0724)
+
+[sub_resource type="Animation" id="Animation_6ejfj"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_tt3jd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsim6"]
+_data = {
+"RESET": SubResource("Animation_tt3jd"),
+"walk": SubResource("Animation_6ejfj")
+}
 
 [node name="BaseEnemy" type="Node2D"]
 script = ExtResource("1_ltjs2")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(21, 20.1692)
+position = Vector2(3.8147e-06, -12.0529)
 rotation = -3.14159
 scale = Vector2(1.09725, -1.63233)
 shape = SubResource("RectangleShape2D_cvaav")
 
 [node name="HP BAR" type="ProgressBar" parent="."]
-offset_left = 2.0
-offset_top = -29.0
-offset_right = 38.0
-offset_bottom = -2.0
+offset_left = -19.0
+offset_top = -61.2221
+offset_right = 17.0
+offset_bottom = -34.2221
 
 [node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(21, 20)
-scale = Vector2(0.301055, 0.31155)
-texture = ExtResource("2_j35ix")
+position = Vector2(3.8147e-06, -12.2221)
+scale = Vector2(3.1875, 3.29862)
+texture = ExtResource("2_pvxuw")
+hframes = 4
+vframes = 12
+frame = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bsim6")
+}

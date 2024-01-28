@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4t080anv7fgf"]
+[gd_scene load_steps=15 format=3 uid="uid://c4t080anv7fgf"]
 
 [ext_resource type="Script" path="res://Scenes/GUI.gd" id="1_gvndy"]
 [ext_resource type="Texture2D" uid="uid://t7u331pyvy35" path="res://Res/toxic.png" id="2_v8ev3"]
@@ -7,9 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://c0wp44i4lxkrh" path="res://Res/hp null.png" id="5_terus"]
 [ext_resource type="Texture2D" uid="uid://dc1ry2khill2v" path="res://Res/hp full.png" id="6_mscnc"]
 [ext_resource type="Texture2D" uid="uid://ck0igiwyl5jtk" path="res://Res/icon.svg" id="7_iti5u"]
+[ext_resource type="Texture2D" uid="uid://b76e4fwgu11ff" path="res://Res/char_gg.png" id="7_r5u6n"]
 [ext_resource type="Texture2D" uid="uid://bhssoo11ytyhx" path="res://Res/frame.png" id="8_0g1im"]
 [ext_resource type="Texture2D" uid="uid://h34qnp3atlsh" path="res://Res/clock.png" id="9_dtwy2"]
-[ext_resource type="Texture2D" uid="uid://jr7n0gl7beng" path="res://Res/frame2.png" id="11_upyam"]
+[ext_resource type="Texture2D" uid="uid://c4arsg6udp0w1" path="res://Res/effects/skill frame.png" id="10_vnwai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53x4l"]
+atlas = ExtResource("7_r5u6n")
+region = Rect2(239.5, 0, 21, 21)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sn7y"]
 bg_color = Color(0.447059, 0.494118, 0.6, 1)
@@ -89,7 +94,7 @@ offset_left = 48.0
 offset_top = 37.0
 offset_right = 118.0
 offset_bottom = 107.0
-texture = ExtResource("7_iti5u")
+texture = SubResource("AtlasTexture_53x4l")
 expand_mode = 1
 stretch_mode = 5
 
@@ -208,7 +213,7 @@ grow_vertical = 2
 [node name="1" type="TextureRect" parent="Skill/HBoxContainer"]
 custom_minimum_size = Vector2(74, 0)
 layout_mode = 2
-texture = ExtResource("11_upyam")
+texture = ExtResource("10_vnwai")
 stretch_mode = 5
 
 [node name="Texture" type="TextureRect" parent="Skill/HBoxContainer/1"]
@@ -231,7 +236,7 @@ stretch_mode = 5
 modulate = Color(1, 1, 1, 0.5)
 custom_minimum_size = Vector2(74, 0)
 layout_mode = 2
-texture = ExtResource("11_upyam")
+texture = ExtResource("10_vnwai")
 stretch_mode = 5
 
 [node name="Texture" type="TextureRect" parent="Skill/HBoxContainer/2"]
@@ -254,7 +259,7 @@ stretch_mode = 5
 modulate = Color(1, 1, 1, 0.25)
 custom_minimum_size = Vector2(74, 0)
 layout_mode = 2
-texture = ExtResource("11_upyam")
+texture = ExtResource("10_vnwai")
 stretch_mode = 5
 
 [node name="Texture" type="TextureRect" parent="Skill/HBoxContainer/3"]
