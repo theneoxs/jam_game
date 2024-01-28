@@ -35,8 +35,6 @@ func _explosion():
 	pass
 
 func _on_body_entered(body):
-	#if body.name == "Dummy":
-		#get_node("/root/Game/Session").increace_score(100)
 	_delete()
 	if body.get_parent() is Enemy:
 			body.get_parent().getHit(10)

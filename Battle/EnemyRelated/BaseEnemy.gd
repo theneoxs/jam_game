@@ -1,7 +1,6 @@
 extends Node2D
 class_name Enemy
-
-@export var hp:float = 100
+@onready  var hp:float = 100
 @export var speed:int = 100
 @export var attackDelay:int = 100
 @export var score:int = 100
@@ -11,7 +10,7 @@ class_name Enemy
 @export var modEffect:Sprite2D
 var item:Object 
 var modification:Object
-var enemyType:Object
+var enemyType
 var HpBar:ProgressBar
 
 func setParams():
@@ -25,20 +24,17 @@ func setParams():
 	$"HP BAR".set_value(hp)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
+	setParams()
 	pass # Replace with function body.
 
 func _init():
-	#var a = randi_range(0,1)
-	#if a == 0:
-		#var enemyType = preload("res://Battle/EnemyRelated/RangeAttack.tscn")
-		#add_child(enemyType)
-	#else:
-		#var enemyType = preload("res://Battle/EnemyRelated/ShortAttack.tscn")
-		#add_child(enemyType)
-
-	pass
-
+	var a = randi_range(0,1)
+	if a == 0:
+		enemyType = preload("res://Battle/EnemyRelated/RangeAttack.tscn")
+	else:
+		enemyType = preload("res://Battle/EnemyRelated/ShortAttack.tscn")
+	add_child(enemyType.instantiate())
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
