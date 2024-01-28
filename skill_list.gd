@@ -8,10 +8,10 @@ var skill_list_queue = []
 
 func _ready():
 	randomize()
-	skill_list_queue.append($Skill1)
-	skill_list_queue.append($Skill1)
-	skill_list_queue.append($Skill2)
-	skill_list_queue.append($Skill3)
+	skill_list_queue.append($Skill5)
+	skill_list_queue.append($Skill5)
+	skill_list_queue.append($Skill5)
+	skill_list_queue.append($Skill5)
 
 func _process(delta):
 	if Input.is_action_just_pressed("skill_pressed"):

@@ -40,9 +40,9 @@ func _explosion():
 	pass
 
 func _on_body_entered(body):
-	_delete()
 	if body.get_parent() is Enemy:
 		body.get_parent().getHit(damage)
+	_delete()
 
 
 func _on_timer_timeout():

@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dcfo26q7vre3a"]
 
-[ext_resource type="Script" path="res://SpeedBuff.gd" id="1_x8pev"]
+[ext_resource type="Script" path="res://Skills/SpeedBuff.gd" id="1_7wkws"]
 
 [node name="SpeedBuff" type="Node"]
-script = ExtResource("1_x8pev")
+script = ExtResource("1_7wkws")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

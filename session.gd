@@ -7,6 +7,8 @@ var wave = 0
 var enemyPerWave:int = 1
 var diff_modificator = 0.1
 
+var modification_acid = 1
+
 var baseEnemyPerWave = 10
 
 func _ready():
@@ -21,7 +23,7 @@ func _process(delta):
 func increace_score(value):
 	user_score += value
 	if value > 0:
-		percent_acid += log(value)
+		percent_acid += log(value) * modification_acid
 	if percent_acid >= 100.0:
 		percent_acid = 100.0
 	get_parent().gui.set_score(user_score)

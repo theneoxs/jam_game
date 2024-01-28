@@ -18,6 +18,8 @@ var dash_vector = Vector2()
 @onready var anim_play = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
+@onready var gun = $Gun
+
 func _ready():
 	anim_play.current_animation = "idle"
 	#hp = max_hp
