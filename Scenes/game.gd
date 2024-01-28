@@ -10,6 +10,11 @@ var game_over = preload("res://Scenes/game_over.tscn")
 @onready var session_data = $Session
 @onready var skill_list = $SkillList
 
+@onready var spawnCooldown:int = 60
+@onready var points:Node = $Player/SpawnPoints
+var enemy = preload("res://Battle/EnemyRelated/BaseEnemy.tscn")
+
+
 func _ready():
 	skill_list.link_player = player
 	gui.set_wave(session_data.wave, session_data.diff_modificator)
@@ -21,10 +26,25 @@ func _ready():
 
 func _process(delta):
 	camera.position = player.global_position
+	if spawnCooldown != 0:
+		spawnCooldown -= 1
+	else:
+		spawnCooldown = 60
+		spawnEnemy()
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		add_child(pause_mode.instantiate())
 		get_tree().paused = true
+
+func spawnEnemy():
+	var new_enemy = enemy.instantiate()
+	get_parent().add_child(new_enemy)
+	new_enemy.global_position = spawnInRandomPoint(points)	
+	
+func spawnInRandomPoint(area:Node2D):
+	var randomPoint = randi_range(0, 7)
+	return area.get_child(randomPoint).global_position
+	
 
 func game_over_mode():
 	var game_over_screen = game_over.instantiate()

@@ -5,9 +5,11 @@ extends RigidBody2D
 @export var size:int = 100
 @export var isBomb:bool = false
 var projectileOwner:Object
+var enemy:Enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#if projectileOwner == player
 	$AnimationPlayer.current_animation = "bullet"
 
 func push(vector):
@@ -33,9 +35,11 @@ func _explosion():
 	pass
 
 func _on_body_entered(body):
-	if body.name == "Dummy":
-		get_node("/root/Game/Session").increace_score(100)
+	#if body.name == "Dummy":
+		#get_node("/root/Game/Session").increace_score(100)
 	_delete()
+	if body.get_parent() is Enemy:
+			body.get_parent().getHit(10)
 
 
 func _on_timer_timeout():

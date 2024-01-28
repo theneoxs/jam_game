@@ -1,7 +1,7 @@
 extends Node2D
 class_name Enemy
 
-@export var hp:int = 100
+@export var hp:float = 100
 @export var speed:int = 100
 @export var attackDelay:int = 100
 @export var score:int = 100
@@ -12,14 +12,24 @@ class_name Enemy
 var item:Object 
 var modification:Object
 var enemyType:Object
+var HpBar:ProgressBar
 
+func setParams():
+	var diffMod = get_node("/root/Game/Session").diff_modificator
+	hp *= diffMod
+	speed *=diffMod
+	attackDelay *= diffMod
+	damage *=diffMod
+	score = (hp + speed + attackDelay + damage) / 4
+	$"HP BAR".set_max(hp)
+	$"HP BAR".set_value(hp)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
 	pass # Replace with function body.
 
 func _init():
-	var a = randi_range(0,1)
+	#var a = randi_range(0,1)
 	#if a == 0:
 		#var enemyType = preload("res://Battle/EnemyRelated/RangeAttack.tscn")
 		#add_child(enemyType)
@@ -27,25 +37,40 @@ func _init():
 		#var enemyType = preload("res://Battle/EnemyRelated/ShortAttack.tscn")
 		#add_child(enemyType)
 
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
-func _attack():
+func attack():
 	pass
 	
-func _death():
+func death():
+	get_node("/root/Game/Session").increace_score(score)
+	
+	queue_free()
+	
+func dropAbbility():
 	pass
 	
-func _dropAbbility():
+func move():
 	pass
 	
-func _move():
+func create():
 	pass
 	
-func _create():
-	pass
+func getHit(damage:int):
+	print("HIT")
+	hp -= damage
+	changeHPbar()
+	if hp <= 0:
+		death()
 	
+func changeHPbar():
+	$"HP BAR".set_value(hp)
+	
+		
 #TODO _mutationOnTimer():
 	#pass
