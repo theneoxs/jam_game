@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdkm1vgnigfmx"]
 
 [ext_resource type="Script" path="res://Scenes/Start_screen.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://bjdf0d5dow0kd" path="res://Res/rect3676-9.png" id="2_wlsk1"]
+[ext_resource type="Texture2D" uid="uid://5ewg7ltjgupv" path="res://Res/rect3676-9.png" id="2_wlsk1"]
 
 [node name="Start_screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2")
 
 [node name="ColorRect" type="ColorRect" parent="."]

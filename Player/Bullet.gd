@@ -42,8 +42,12 @@ func _explosion():
 func _on_body_entered(body):
 	if body.get_parent() is Enemy:
 		body.get_parent().getHit(damage)
+	elif body.name == "Player":
+		body.hp -= damage
+		body.show_hp()
 	_delete()
 
+		
 
 func _on_timer_timeout():
 	_delete()
