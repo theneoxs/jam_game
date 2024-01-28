@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cynchbnkk75hp"]
+[gd_scene load_steps=5 format=3 uid="uid://cynchbnkk75hp"]
 
 [ext_resource type="Script" path="res://Battle/EnemyRelated/ShortAttack.gd" id="1_wlw0a"]
-[ext_resource type="Texture2D" uid="uid://b484r7p7ey14w" path="res://Res/weapon.png" id="2_ppjqa"]
+[ext_resource type="Texture2D" uid="uid://csfxbw3dvca3d" path="res://Res/weapon.png" id="2_ppjqa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_go6mx"]
 atlas = ExtResource("2_ppjqa")
 region = Rect2(62.9416, 18.628, 31.121, 10.4462)
+
+[sub_resource type="Curve2D" id="Curve2D_tspw1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 86.3333, 45, 0, 0, 0, 0, 58.5555, -15, 0, 0, 0, 0, 19.6667, -35, 0, 0, 0, 0, -35.8889, -27.5, 0, 0, 0, 0, -55.3333, 2.5, 0, 0, 0, 0, -60.8889, 37.5)
+}
+point_count = 6
 
 [node name="ShortAttack" type="Node2D"]
 script = ExtResource("1_wlw0a")
@@ -15,3 +21,18 @@ z_index = 1
 position = Vector2(19, 13)
 scale = Vector2(1.24889, 1.68438)
 texture = SubResource("AtlasTexture_go6mx")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+position = Vector2(-9.7561, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Area2D"]
+polygon = PackedVector2Array(-4.55285, 1.95122, -2.60163, 3.90244, 8.45528, 3.90244, 21.4634, 3.90244, 35.1219, 1.95122, 35.1219, -0.650406, 35.1219, -3.90244, 11.0569, -5.20325, -3.25203, -4.55285, -4.55285, -1.95122)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(22.92, -1)
+scale = Vector2(0.36, 0.4)
+curve = SubResource("Curve2D_tspw1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(86.3333, 45)
+rotation = -2.00438

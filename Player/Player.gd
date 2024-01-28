@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 var hp = 50
 var max_hp = 100
 
@@ -72,7 +72,7 @@ func _physics_process(delta):
 	else:
 		velocity = direction * SPEED
 	
-	if Input.is_action_pressed("ui_end"):
+	if hp <= 0:
 		die()
 	move_and_slide()
 
