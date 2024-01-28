@@ -1,10 +1,10 @@
 extends Node2D
 class_name Enemy
-@onready  var hp:float = 100
-@export var speed:int = 100
+@onready var hp:float = 100
+@export var speed:float = 100.0
 @export var attackDelay:int = 100
 @export var score:int = 100
-@export var damage:int = 100
+@export var damage:int = 10
 @export var baseSprite:Sprite2D
 @export var additionalSprite:Sprite2D
 @export var modEffect:Sprite2D
@@ -14,28 +14,33 @@ var enemyType
 var HpBar:ProgressBar
 
 var player: Node2D = null
-var move_speed: float = 250.0
+var type_range = 0
 
 func setParams():
 	var diffMod = randf_range(0.1, get_node("/root/Game/Session").diff_modificator)
 	if diffMod < 0.1:
 		diffMod = 0.1
 	hp *= diffMod
-	speed *= diffMod
-	attackDelay *= diffMod
-	damage *= diffMod
+	if type_range == 0:
+		speed = 100
+	else:
+		speed += speed*diffMod*0.5
+		if speed > 300:
+			speed = 300
+	#speed *= diffMod
+	#attackDelay *= diffMod
+	damage += damage*diffMod*0.1
 	score = (hp*2 + speed + attackDelay + damage) / 4
 	$"HP BAR".set_max(hp)
 	$"HP BAR".set_value(hp)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setParams()
-	print(score)
 	player = get_node("/root/Game/Player")
 
 func _init():
-	var a = randi_range(0,1)
-	if a == 0:
+	type_range = randi_range(0,1)
+	if type_range == 0:
 		enemyType = preload("res://Battle/EnemyRelated/RangeAttack.tscn")
 	else:
 		enemyType = preload("res://Battle/EnemyRelated/ShortAttack.tscn")
@@ -48,14 +53,13 @@ func _process(delta):
 func moveTowardsPlayer(delta):
 	if player != null:
 		var direction = (player.global_position - global_position).normalized()
-		var velocity = direction * move_speed * delta
+		var velocity = direction * speed * delta
 		translate(velocity)
 
 func attack():
 	pass
 	
 func death():
-	print(score)
 	get_node("/root/Game/Session").increace_score(score)
 	get_tree().call_group("Game", "_on_enemy_killed")
 	queue_free()
@@ -70,7 +74,6 @@ func create():
 	pass
 	
 func getHit(damage:int):
-	print("HIT")
 	hp -= damage
 	changeHPbar()
 	if hp <= 0:

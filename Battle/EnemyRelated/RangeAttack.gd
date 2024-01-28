@@ -6,8 +6,8 @@ var bullet = preload("res://Player/bullet.tscn")
 @onready var shot_delay = $ShotDelay
 var player: Node2D = null
 
-var bullet_damage = 15
-var bullet_speed = 15
+var bullet_damage = 7
+var bullet_speed = 6
 var bullet_size = 1
 
 var can_attack = true

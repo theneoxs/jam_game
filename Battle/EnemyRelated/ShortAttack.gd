@@ -69,9 +69,7 @@ func attack():
 	is_attacked = true
 
 func _on_area_2d_body_entered(body):
-	print(body)
-	if body.name == "Player":
-		print(body.name )
+	if body.name == "Player" and is_attacked == true:
 		body.hp -= damage
 		body.show_hp()
 

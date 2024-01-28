@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cynchbnkk75hp"]
 
 [ext_resource type="Script" path="res://Battle/EnemyRelated/ShortAttack.gd" id="1_wlw0a"]
-[ext_resource type="Texture2D" uid="uid://csfxbw3dvca3d" path="res://Res/weapon.png" id="2_ppjqa"]
+[ext_resource type="Texture2D" uid="uid://bi0dqbxj4n0n" path="res://Res/weapon.png" id="2_ppjqa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_go6mx"]
 atlas = ExtResource("2_ppjqa")
@@ -36,3 +36,5 @@ curve = SubResource("Curve2D_tspw1")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(86.3333, 45)
 rotation = -2.00438
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

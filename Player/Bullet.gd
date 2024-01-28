@@ -1,8 +1,8 @@
 extends RigidBody2D
 
-@export var damage : int = 10
-@export var speed : int = 7
-@export var size : int = 1
+@export var damage : float = 10.0
+@export var speed : float = 7.0
+@export var size : float = 1.0
 @export var isBomb : bool = false
 var projectileOwner : Object
 var enemy : Enemy

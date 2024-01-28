@@ -3,7 +3,7 @@ extends skill_class
 var bullet = preload("res://Player/bullet.tscn")
 var bullet_damage = 20
 var bullet_speed = 7
-var bullet_size = 1
+var bullet_size = 0.8
 
 var push_vector = Vector2(100, 0)
 
@@ -24,5 +24,5 @@ func release():
 			new_bullet.global_position = get_parent().link_player.gun.point.global_position
 			var rotate_player = get_parent().link_player.gun.rotation
 			new_bullet.push(push_vector.rotated(rotate_player + deg_to_rad(j)))
-			new_bullet.rotation = rotate_player #+ deg_to_rad(j)
-		await get_tree().create_timer(0.5).timeout
+			new_bullet.rotation = rotate_player + deg_to_rad(j)
+		await get_tree().create_timer(0.1).timeout
