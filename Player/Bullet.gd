@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 @export var damage : int = 10
-@export var speed : int = 100
-@export var size : int = 100
+@export var speed : int = 7
+@export var size : int = 1
 @export var isBomb : bool = false
 var projectileOwner : Object
 var enemy : Enemy
@@ -12,12 +12,17 @@ func _ready():
 	#if projectileOwner == player
 	$AnimationPlayer.current_animation = "bullet"
 
+func set_params(dmg, spd, siz):
+	damage = dmg
+	speed = spd
+	size = siz
+
 func push(vector):
-	linear_velocity = vector
+	linear_velocity = vector * speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	scale = Vector2(1, 1) * size
 
 func _create():
 	pass
@@ -37,7 +42,7 @@ func _explosion():
 func _on_body_entered(body):
 	_delete()
 	if body.get_parent() is Enemy:
-			body.get_parent().getHit(damage)
+		body.get_parent().getHit(damage)
 
 
 func _on_timer_timeout():

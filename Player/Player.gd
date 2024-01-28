@@ -53,7 +53,7 @@ func _physics_process(delta):
 		cooldown_timer -= delta
 	
 	# Check for dash input and cooldown status.
-	if Input.is_action_pressed("ui_accept") and not is_dashing and cooldown_timer <= 0.0:
+	if Input.is_action_pressed("dash") and not is_dashing and cooldown_timer <= 0.0:
 		is_dashing = true
 		dash_timer = DASH_DURATION
 		dash_vector.x = direction.x

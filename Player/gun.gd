@@ -1,17 +1,22 @@
 extends Node2D
 
 var bullet = preload("res://Player/bullet.tscn")
+var bullet_damage = 15
+var bullet_speed = 7
+var bullet_size = 1
+
 @onready var sprite = $Sprite2D
 @onready var point = $Marker2D
 @onready var shot_delay = $ShotDelay
 
-var attack_delay = 0.1
+var attack_delay = 0.15
 var death = false
 
 var marker_pos1 = Vector2(55, -9)
 var marker_pos2 = Vector2(55, -1)
 
 var is_shot = true
+var push_vector = Vector2(100, 0)
 
 func _process(delta):
 	if death:
@@ -38,8 +43,9 @@ func _process(delta):
 		shot_delay.start()
 		var new_bullet = bullet.instantiate()
 		Bullet.add_child(new_bullet)
+		new_bullet.set_params(bullet_damage, bullet_speed, bullet_size)
 		new_bullet.global_position = point.global_position
-		new_bullet.push(Vector2(700, 0).rotated(rotation))
+		new_bullet.push(push_vector.rotated(rotation))
 		new_bullet.rotation = rotation
 
 func _test(value):
