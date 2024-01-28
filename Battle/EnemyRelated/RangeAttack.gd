@@ -3,13 +3,24 @@ extends Node2D
 var bullet = preload("res://Player/bullet.tscn")
 @onready var sprite = $Sprite2D
 @onready var point = $Marker2D
+@onready var shot_delay = $ShotDelay
 var player: Node2D = null
+
+var bullet_damage = 15
+var bullet_speed = 15
+var bullet_size = 1
+
+var can_attack = true
+var attack_timer = 0.0
+
+var attack_delay = 2.55
 var death = false
 
-# Новая переменная для управления задержкой между выстрелами
-var can_attack = true
-const attack_cooldown = 0.5
-var attack_timer = 0.0
+var marker_pos1 = Vector2(55, -9)
+var marker_pos2 = Vector2(55, -1)
+
+var is_shot = true
+var push_vector = Vector2(100, 0)
 
 func _ready():
 	player = get_node("/root/Game/Player")
@@ -20,26 +31,36 @@ func _process(delta):
 
 	if player != null:
 		var direction = (player.global_position - global_position).normalized()
-		look_at(global_position + direction)  # Поворачиваем sprite в сторону Player
+		look_at(global_position + direction)
+		if (rotation_degrees < -90 and rotation_degrees > -270) or (rotation_degrees > 90 and rotation_degrees < 270):
+			sprite.flip_v = true
+			point.position = marker_pos2
+		else:
+			sprite.flip_v = false
+			point.position = marker_pos1
 
-	# Уменьшаем таймер для задержки между выстрелами
 	if attack_timer > 0.0:
 		attack_timer -= delta
 
-	# Проверяем, можно ли атаковать
 	if  can_attack:
-		_attack()  # Вызываем функцию атаки
-		can_attack = false  # Запрещаем атаковать
-		attack_timer = attack_cooldown  # Устанавливаем задержку между выстрелами
+		_attack()
+		can_attack = false
+		attack_timer = attack_delay
 
-	# Проверяем, прошла ли задержка между выстрелами
 	if attack_timer <= 0.0:
-		can_attack = true  # Разрешаем атаковать
+		can_attack = true
 
-func _attack():
+func _attack():	
+	is_shot = false
+	shot_delay.wait_time = attack_delay
+	shot_delay.start()
+	
 	var new_bullet = bullet.instantiate()
 	Bullet.add_child(new_bullet)
-	print(point.global_position)
+	new_bullet.set_params(bullet_damage, bullet_speed, bullet_size)
 	new_bullet.global_position = point.global_position
-	new_bullet.push(Vector2(700, 0).rotated(rotation))
+	new_bullet.push(push_vector.rotated(rotation))
 	new_bullet.rotation = rotation
+
+func _on_timer_timeout():
+	is_shot = true

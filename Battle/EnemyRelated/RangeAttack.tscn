@@ -18,3 +18,6 @@ texture = SubResource("AtlasTexture_tyssh")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(55, 16)
+
+[node name="ShotDelay" type="Timer" parent="."]
+wait_time = 5.0
