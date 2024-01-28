@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7yr51m0mqks5"]
+[gd_scene load_steps=10 format=3 uid="uid://b7yr51m0mqks5"]
 
 [ext_resource type="Script" path="res://Scenes/game.gd" id="1_403he"]
 [ext_resource type="PackedScene" uid="uid://c4t080anv7fgf" path="res://Scenes/gui.tscn" id="2_ussom"]
 [ext_resource type="Script" path="res://Scenes/Dummy.gd" id="6_rn58f"]
 [ext_resource type="Texture2D" uid="uid://ck0igiwyl5jtk" path="res://Res/icon.svg" id="7_ockte"]
+[ext_resource type="PackedScene" uid="uid://dfsl446lie6xh" path="res://Skills/buff_queue.tscn" id="8_tuvph"]
 [ext_resource type="PackedScene" uid="uid://uc6pvbu8gxwj" path="res://session.tscn" id="9_6rekq"]
 [ext_resource type="PackedScene" uid="uid://6b2hdefjcvdy" path="res://skill_list.tscn" id="10_o8smn"]
 [ext_resource type="PackedScene" uid="uid://xvdvkmrmx52" path="res://Player/Player.tscn" id="15_i1y8m"]
@@ -77,6 +78,8 @@ scale = Vector2(0.59375, 0.59375)
 texture = ExtResource("7_ockte")
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="BuffQueue" parent="." instance=ExtResource("8_tuvph")]
 
 [connection signal="enemyKilled" from="." to="." method="_on_enemy_killed"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]

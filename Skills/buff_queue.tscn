@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfsl446lie6xh"]
+
+[ext_resource type="Script" path="res://Skills/buff_queue.gd" id="1_fhv2r"]
+
+[node name="BuffQueue" type="Node"]
+script = ExtResource("1_fhv2r")

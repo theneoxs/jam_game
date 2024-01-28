@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var buff_icon = preload("res://buff_icon.tscn")
+
 @onready var toxic_bar = $ToxicBar
 @onready var toxic_bar_text = $ToxicBar/Label
 @onready var HP_bar = $HPBar
@@ -54,4 +56,13 @@ func change_skill(skill_list):
 			skill_table.get_node(str(i+1)).visible = true
 			skill_table.get_node(str(i+1)+"/Texture").texture = load(skill_list[i]["image_skill"])
 		
-		
+
+func create_buff(buff_name, icon, buff_time):
+	var icon_buff = buff_icon.instantiate()
+	buff_table.add_child(icon_buff)
+	icon_buff.name = buff_name
+	icon_buff.set_icon(icon)
+	icon_buff.set_timer(buff_time)
+
+func delete_buff(buff_name):
+	buff_table.get_node(buff_name).queue_free()

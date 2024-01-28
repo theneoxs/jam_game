@@ -4,12 +4,14 @@ var link_player = null
 
 var skill_list_queue = []
 
+@onready var buff_queue = get_parent().get_node("BuffQueue")
+
 func _ready():
 	randomize()
 	skill_list_queue.append($Skill1)
 	skill_list_queue.append($Skill1)
-	skill_list_queue.append($Skill1)
-	skill_list_queue.append($Skill1)
+	skill_list_queue.append($Skill2)
+	skill_list_queue.append($Skill3)
 
 func _process(delta):
 	if Input.is_action_just_pressed("skill_pressed"):

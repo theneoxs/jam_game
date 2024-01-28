@@ -3,9 +3,9 @@ extends CharacterBody2D
 var hp = 50
 var max_hp = 100
 
-const SPEED = 250.0
-const DASH_SPEED = 600.0
-const DASH_DURATION = 0.3
+var SPEED = 250.0
+const DASH_SPEED = 800.0
+const DASH_DURATION = 0.2
 const DASH_COOLDOWN = 0.5
 var is_dashing = false
 var dash_timer = 0.0

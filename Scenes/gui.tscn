@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4t080anv7fgf"]
+[gd_scene load_steps=13 format=3 uid="uid://c4t080anv7fgf"]
 
 [ext_resource type="Script" path="res://Scenes/GUI.gd" id="1_gvndy"]
 [ext_resource type="Texture2D" uid="uid://t7u331pyvy35" path="res://Res/toxic.png" id="2_v8ev3"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://ck0igiwyl5jtk" path="res://Res/icon.svg" id="7_iti5u"]
 [ext_resource type="Texture2D" uid="uid://bhssoo11ytyhx" path="res://Res/frame.png" id="8_0g1im"]
 [ext_resource type="Texture2D" uid="uid://h34qnp3atlsh" path="res://Res/clock.png" id="9_dtwy2"]
-[ext_resource type="Texture2D" uid="uid://c7a54nha6e7ab" path="res://Res/skill.png" id="10_hcgc5"]
 [ext_resource type="Texture2D" uid="uid://jr7n0gl7beng" path="res://Res/frame2.png" id="11_upyam"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sn7y"]
@@ -167,7 +166,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buffs" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -187,26 +185,6 @@ offset_top = -21.0
 offset_right = 318.0
 offset_bottom = 21.0
 grow_vertical = 2
-
-[node name="1" type="TextureRect" parent="Buffs/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("10_hcgc5")
-stretch_mode = 5
-
-[node name="2" type="TextureRect" parent="Buffs/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("10_hcgc5")
-stretch_mode = 5
-
-[node name="3" type="TextureRect" parent="Buffs/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("10_hcgc5")
-stretch_mode = 5
-
-[node name="4" type="TextureRect" parent="Buffs/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("10_hcgc5")
-stretch_mode = 5
 
 [node name="Skill" type="Control" parent="."]
 layout_mode = 3
