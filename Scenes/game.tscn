@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ck0igiwyl5jtk" path="res://Res/icon.svg" id="7_ockte"]
 [ext_resource type="PackedScene" uid="uid://dfsl446lie6xh" path="res://Skills/buff_queue.tscn" id="8_tuvph"]
 [ext_resource type="PackedScene" uid="uid://uc6pvbu8gxwj" path="res://session.tscn" id="9_6rekq"]
-[ext_resource type="Texture2D" uid="uid://c4p4mhxdmtpx5" path="res://Res/tileset x1.png" id="9_wk6id"]
+[ext_resource type="Texture2D" uid="uid://bqcrey3ava6sd" path="res://Res/tileset x1.png" id="9_wk6id"]
 [ext_resource type="PackedScene" uid="uid://6b2hdefjcvdy" path="res://skill_list.tscn" id="10_o8smn"]
 [ext_resource type="PackedScene" uid="uid://xvdvkmrmx52" path="res://Player/Player.tscn" id="15_i1y8m"]
 

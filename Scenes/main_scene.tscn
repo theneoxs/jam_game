@@ -80,6 +80,27 @@ text = "Leader"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Title" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture_normal = ExtResource("2_lue7m")
+texture_pressed = ExtResource("3_wb142")
+texture_hover = ExtResource("4_cvm0c")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/Title"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("3_5l8g7")
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SettingBtn" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
@@ -208,6 +229,7 @@ grow_horizontal = 0
 
 [connection signal="pressed" from="VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/LeaderBtn" to="." method="_on_leader_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Title" to="." method="_on_title_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingBtn" to="." method="_on_setting_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/EndBtn" to="." method="_on_end_btn_pressed"]
 [connection signal="pressed" from="ChangeBtn" to="." method="_on_change_btn_pressed"]

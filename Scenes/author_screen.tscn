@@ -1,0 +1,295 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqrjflnfv1b40"]
+
+[ext_resource type="Script" path="res://Scenes/author_screen.gd" id="1_qpype"]
+[ext_resource type="FontFile" uid="uid://c7fb77pn6jjic" path="res://Res/m5x7.ttf" id="2_nd47y"]
+[ext_resource type="Texture2D" uid="uid://dhel5ru8kbhnp" path="res://Scenes/g803.png" id="3_ffxcw"]
+[ext_resource type="Texture2D" uid="uid://co7ipp52uimuv" path="res://Res/button.png" id="4_fwq5s"]
+[ext_resource type="Texture2D" uid="uid://dxy7aus7y5qft" path="res://Res/button pressed.png" id="5_4k6tp"]
+[ext_resource type="Texture2D" uid="uid://dqn2gna42tmyb" path="res://Res/button hover.png" id="6_rdt03"]
+[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="7_jr458"]
+
+[node name="AuthorScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qpype")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.470588, 0.513726, 0.603922, 1)
+
+[node name="Header" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -322.0
+offset_right = 372.0
+offset_bottom = -217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nd47y")
+theme_override_font_sizes/font_size = 64
+text = "Team
+Punch Game Company"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Point1" type="Control" parent="Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -566.0
+offset_top = -245.0
+offset_right = 561.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Header2" type="Label" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nd47y")
+theme_override_font_sizes/font_size = 64
+text = "Alex
+Nraj10
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Point1" type="Control" parent="HBoxContainer/Header2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header3" type="Label" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nd47y")
+theme_override_font_sizes/font_size = 64
+text = "Anton 
+derishlan "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Point1" type="Control" parent="HBoxContainer/Header3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header4" type="Label" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nd47y")
+theme_override_font_sizes/font_size = 64
+text = "Tim
+theneoxs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Point1" type="Control" parent="HBoxContainer/Header4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header5" type="Label" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nd47y")
+theme_override_font_sizes/font_size = 64
+text = "Alex
+mtszx"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Point1" type="Control" parent="HBoxContainer/Header5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -245.0
+offset_top = -141.0
+offset_right = -103.0
+offset_bottom = 1.00012
+grow_horizontal = 0
+grow_vertical = 0
+rotation = -0.615033
+texture = ExtResource("3_ffxcw")
+expand_mode = 1
+
+[node name="Point1" type="Control" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -81.0
+offset_right = 372.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nd47y")
+theme_override_font_sizes/font_size = 64
+text = "Jam
+Mutation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Point1" type="Control" parent="Header2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.270588)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.0
+offset_top = 24.0
+offset_right = 408.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nd47y")
+theme_override_font_sizes/font_size = 64
+text = "Thanks for playing our games!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Point1" type="Control" parent="Header3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitBtn" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = -103.0
+offset_right = 243.0
+offset_bottom = -53.0
+grow_vertical = 0
+texture_normal = ExtResource("4_fwq5s")
+texture_pressed = ExtResource("5_4k6tp")
+texture_hover = ExtResource("6_rdt03")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="ExitBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("7_jr458")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 112.0
+offset_top = 470.0
+offset_right = 1198.0
+offset_bottom = 596.0
+theme_override_fonts/normal_font = ExtResource("2_nd47y")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]Resource[/center]
+1. Weapons - [url]https://vladpenn.itch.io/weapon[/url]
+2. Font - [url]https://managore.itch.io/m5x7[/url]
+3. Button - [url]https://joshuajennerdev.itch.io/pixel-keys-x16[/url]
+4. Hero - [url]https://immunitys.itch.io/pixel-top-down-character[/url]
+5. Enemy - [url]https://snoblin.itch.io/pixel-rpg-free-npc[/url]
+6. Map - [url]https://trevor-pupkin.itch.io/tech-dungeon-roguelite[/url]
+7. Sound - [url]https://f8studios.itch.io/snakes-second-authentic-gun-sounds-pack[/url]
+8. Sound 2 - [url]https://kronbits.itch.io/freesfx[/url]
+5. Music - [url]https://tallbeard.itch.io/music-loop-bundle[/url]"
+
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="meta_clicked" from="RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

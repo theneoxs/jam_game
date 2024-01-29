@@ -21,3 +21,7 @@ func _on_start_btn_pressed():
 
 func _on_change_btn_pressed():
 	add_child(change_username.instantiate())
+
+
+func _on_title_pressed():
+	get_tree().change_scene_to_file("res://Scenes/author_screen.tscn")
