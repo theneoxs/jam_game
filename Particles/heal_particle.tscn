@@ -10,8 +10,8 @@ particles_anim_loop = false
 
 [sub_resource type="Gradient" id="Gradient_vbm40"]
 interpolation_color_space = 1
-offsets = PackedFloat32Array(0.213115, 1)
-colors = PackedColorArray(0.575526, 0, 0.187353, 1, 0.998636, 0.782472, 0.819597, 1)
+offsets = PackedFloat32Array(0.270492, 1)
+colors = PackedColorArray(0.575526, 0, 0.187353, 1, 0.807434, 0.333665, 0.137161, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_74o2q"]
 gradient = SubResource("Gradient_vbm40")

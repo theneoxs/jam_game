@@ -1,5 +1,6 @@
 extends Node2D
 class_name Enemy
+@onready var maxHp:float = 100
 @onready var hp:float = 100
 @export var speed:float = 100.0
 @export var attackDelay:int = 100
@@ -7,11 +8,17 @@ class_name Enemy
 @export var damage:int = 10
 @export var baseSprite:Sprite2D
 @export var additionalSprite:Sprite2D
-@export var modEffect:Sprite2D
+@onready var modEffect
 var item:Object 
 var modification:Object
 var enemyType
-var HpBar:ProgressBar
+var isMutated:bool = false
+var iSRegenerator:bool = false
+var mutationvalue:float = 0
+@onready var mutations:Dictionary = {"AttackUp": "res://Battle/EnemyRelated/Modif/AttackUp.tscn", 
+"Regen" : "res://Battle/EnemyRelated/Modif/Regen.tscn",
+"Speedster": "res://Battle/EnemyRelated/Modif/Speedster.tscn",
+"Tank" : "res://Battle/EnemyRelated/Modif/Tank.tscn"}
 
 var player: Node2D = null
 var type_range = 0
@@ -21,6 +28,7 @@ func setParams():
 	if diffMod < 0.1:
 		diffMod = 0.1
 	hp *= diffMod
+	maxHp = hp
 	if type_range == 0:
 		speed += 100*diffMod*0.25
 		if speed > 230:
@@ -33,11 +41,15 @@ func setParams():
 	#attackDelay *= diffMod
 	damage += damage*diffMod*0.1
 	score = (hp*2 + speed + attackDelay + damage) / 4
+	
 	$"HP BAR".set_max(hp)
 	$"HP BAR".set_value(hp)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setParams()
+	if randi() % 100 <= (10 + randf_range(0.1, get_node("/root/Game/Session").diff_modificator)):
+		applyMuttation()
 	player = get_node("/root/Game/Player")
 	$AnimationPlayer.current_animation = "walk"
 
@@ -52,6 +64,17 @@ func _init():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	moveTowardsPlayer(delta)
+	if iSRegenerator:
+		regenerate(delta)
+	if mutationvalue < 100 and !isMutated:
+		mutationOnTimer(delta)
+	elif mutationvalue >=100 and !isMutated:
+		applyMuttation()
+
+func regenerate(delta):
+	if hp<maxHp:
+		hp+=delta * maxHp/100
+		changeHPbar()
 
 func moveTowardsPlayer(delta):
 	if player != null:
@@ -89,7 +112,37 @@ func getHit(damage:int):
 	
 func changeHPbar():
 	$"HP BAR".set_value(hp)
+
 	
-		
-#TODO _mutationOnTimer():
-	#pass
+func applyMuttation():
+	var mutationHappeningParticle = preload("res://Battle/EnemyRelated/Modif/MuttationHappening.tscn")
+	add_child(mutationHappeningParticle.instantiate())
+	var random_key = mutations.keys()[randi() % mutations.size()]
+	var currentMuttation = mutations[random_key]
+	match random_key:
+		"AttackUp":
+			damage*=2
+			speed*=1.5
+			attackDelay *= 0.5
+		"Regen":
+			iSRegenerator=true
+			maxHp *= 2
+			hp = maxHp
+		"Speedster":
+			speed*=4
+			set_scale(Vector2(0.75, 0.75))
+		"Tank":
+			maxHp *= 3
+			hp = maxHp
+			speed *= 0.5
+			set_scale(Vector2(1.5,1.5))
+	
+	modEffect = load(currentMuttation)
+	add_child(modEffect.instantiate())
+	score*=5
+	isMutated = true
+	$"Mut BAR".set_value(100)
+	
+func mutationOnTimer(delta):
+	mutationvalue  += delta * 5
+	$"Mut BAR".set_value(mutationvalue)

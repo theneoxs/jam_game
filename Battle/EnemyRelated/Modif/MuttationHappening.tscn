@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0vmdkl4q7bu"]
+
+[ext_resource type="PackedScene" uid="uid://1gmsnvhin06e" path="res://Particles/heal_particle.tscn" id="1_uc30r"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wx34o"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 28.32
+angle_max = 695.7
+direction = Vector3(0, 0, 0)
+spread = 115.787
+orbit_velocity_max = 0.135
+radial_velocity_min = 85.05
+radial_velocity_max = 85.05
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 15.73
+tangential_accel_max = 26.97
+scale_min = 10.0
+scale_max = 20.0
+color = Color(0.968627, 0.968627, 0.968627, 1)
+anim_speed_max = 4.49
+
+[node name="MuttationHappening" type="Node2D"]
+
+[node name="Mutate" parent="." instance=ExtResource("1_uc30r")]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_wx34o")

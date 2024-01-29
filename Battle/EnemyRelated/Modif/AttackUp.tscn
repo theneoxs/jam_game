@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://s5dnlay20f2q"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rskt3"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_vbm40"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.270492, 1)
+colors = PackedColorArray(0.575526, 0, 0.187353, 1, 0.807434, 0.333665, 0.137161, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_74o2q"]
+gradient = SubResource("Gradient_vbm40")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8v8dw"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 58.97
+angle_max = 695.7
+direction = Vector3(0, 0, 0)
+spread = 115.787
+orbit_velocity_min = -1.573
+orbit_velocity_max = -0.944
+radial_velocity_min = -27.31
+radial_velocity_max = 62.58
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -65.58
+tangential_accel_min = -100.0
+tangential_accel_max = -100.0
+scale_min = 4.0
+scale_max = 5.33
+color = Color(0.596078, 0.0117647, 0.317647, 1)
+color_ramp = SubResource("GradientTexture1D_74o2q")
+anim_speed_max = 0.71
+turbulence_noise_strength = 12.7
+turbulence_noise_scale = 4.525
+
+[node name="AttackUp" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Particle" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_rskt3")
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_8v8dw")
+
+[connection signal="finished" from="Particle" to="Particle" method="_on_finished"]
