@@ -19,6 +19,8 @@ func _on_exit_btn_pressed():
 
 
 func _on_restart_btn_pressed():
+	for i in get_node("/root/Bullet").get_children():
+		i.queue_free()
 	get_tree().reload_current_scene()
 
 

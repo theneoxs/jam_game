@@ -78,11 +78,15 @@ func _physics_process(delta):
 		velocity = direction * SPEED
 	
 	if hp <= 0:
-		die()
+		hp = 0
+		if !is_dead:
+			die()
 	move_and_slide()
 
 
 func die():
+	collision_layer = 0
+	collision_mask = 0
 	hp = 0
 	get_parent().gui.set_hp_value(hp)
 	is_dead=true

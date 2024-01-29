@@ -5,6 +5,12 @@ var bullet_damage = 15
 var bullet_speed = 7
 var bullet_size = 1
 
+var level_pict = {
+	1 : preload("res://Player/gun1.tres"),
+	2 : preload("res://Player/gun2.tres"),
+	3 : preload("res://Player/gun3.tres"),
+	4 : preload("res://Player/gun4.tres"),
+}
 @onready var sprite = $Sprite2D
 @onready var point = $Marker2D
 @onready var shot_delay = $ShotDelay
@@ -17,6 +23,25 @@ var marker_pos2 = Vector2(55, -1)
 
 var is_shot = true
 var push_vector = Vector2(100, 0)
+
+var level = 1
+
+func upgrade_level(inc, coef):
+	level += inc
+	if level < 1:
+		level = 1
+	if level > 4:
+		level = 4
+	sprite.texture = level_pict[level]
+	if inc > 0:
+		bullet_damage += bullet_damage*coef*0.25
+		attack_delay -= 0.01
+	else:
+		bullet_damage -= bullet_damage*coef*0.2
+		attack_delay += 0.01
+
+func show_pict(val1, val2, val3, val4):
+	pass
 
 func _process(delta):
 	if death:

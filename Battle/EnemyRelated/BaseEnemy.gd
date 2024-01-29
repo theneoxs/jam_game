@@ -76,7 +76,7 @@ func _process(delta):
 
 func regenerate(delta):
 	if hp<maxHp:
-		hp+=delta * maxHp/100
+		hp += delta * maxHp/25
 		changeHPbar()
 
 func moveTowardsPlayer(delta):
