@@ -19,6 +19,7 @@ var dash_vector = Vector2()
 @onready var sprite = $Sprite2D
 
 @onready var gun = $Gun
+@onready var sword = $Sword
 
 func _ready():
 	anim_play.current_animation = "idle"
@@ -56,6 +57,7 @@ func _physics_process(delta):
 	
 	# Check for dash input and cooldown status.
 	if Input.is_action_pressed("dash") and not is_dashing and cooldown_timer <= 0.0:
+		collision_layer = 4
 		is_dashing = true
 		dash_timer = DASH_DURATION
 		dash_vector.x = direction.x
@@ -68,6 +70,7 @@ func _physics_process(delta):
 
 		# Check if dash duration is over.
 		if dash_timer <= 0.0:
+			collision_layer = 5
 			is_dashing = false
 			cooldown_timer = DASH_COOLDOWN  # Start cooldown timer after dash.
 

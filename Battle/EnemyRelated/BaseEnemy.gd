@@ -3,7 +3,7 @@ class_name Enemy
 @onready var maxHp:float = 100
 @onready var hp:float = 100
 @export var speed:float = 100.0
-@export var attackDelay:int = 100
+@export var attackDelay:float = 2.55
 @export var score:int = 100
 @export var damage:int = 10
 @export var baseSprite:Sprite2D
@@ -38,7 +38,9 @@ func setParams():
 		if speed > 300:
 			speed = 300
 	#speed *= diffMod
-	#attackDelay *= diffMod
+	attackDelay -= randf_range(0.1, diffMod)
+	if attackDelay < 1.25:
+		attackDelay = 1.25
 	damage += damage*diffMod*0.1
 	score = (hp*2 + speed + attackDelay + damage) / 4
 	
@@ -56,13 +58,14 @@ func _ready():
 func _init():
 	type_range = randi_range(0,1)
 	if type_range == 0:
-		enemyType = preload("res://Battle/EnemyRelated/RangeAttack.tscn")
+		enemyType = preload("res://Battle/EnemyRelated/RangeAttack.tscn").instantiate()
 	else:
-		enemyType = preload("res://Battle/EnemyRelated/ShortAttack.tscn")
-	add_child(enemyType.instantiate())
+		enemyType = preload("res://Battle/EnemyRelated/ShortAttack.tscn").instantiate()
+	add_child(enemyType)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	enemyType.attack_delay = attackDelay
 	moveTowardsPlayer(delta)
 	if iSRegenerator:
 		regenerate(delta)
@@ -124,12 +127,15 @@ func applyMuttation():
 			damage*=2
 			speed*=1.2
 			attackDelay *= 0.5
+			if attackDelay < 0.75:
+				attackDelay = 0.75
 		"Regen":
 			iSRegenerator=true
 			maxHp *= 1.5
 			hp = maxHp
 		"Speedster":
-			speed*=2
+			speed *= 2
+			attackDelay *= 0.5
 			if speed > 400:
 				speed = 400
 			set_scale(Vector2(0.75, 0.75))

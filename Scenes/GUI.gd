@@ -9,16 +9,21 @@ var buff_icon = preload("res://buff_icon.tscn")
 @onready var wave_text = $TextureRect/WaveText
 @onready var timer_text = $TextureRect/WaveText2
 @onready var score = $CounterField/Label
+@onready var button_press_toxic = $ToxicBar/ButtonPress
 
 @onready var skill_table = $Skill/HBoxContainer
 @onready var buff_table = $Buffs/HBoxContainer
+@onready var button_press = $Skill/ButtonPress
 
 var timer = 0
 
 func set_toxic_value(value):
 	#print(value)
+	button_press_toxic.visible = false
 	toxic_bar.value = int(value)
 	toxic_bar_text.text = "{value}/{max}".format({"value" : int(value), "max" : toxic_bar.max_value})
+	if value >= 100:
+		button_press_toxic.visible = true
 
 func increase_toxic_value(inc_value):
 	set_toxic_value(toxic_bar.value + inc_value)
@@ -45,6 +50,7 @@ func set_score(value):
 	score.text = str(value) + " pts"
 
 func change_skill(skill_list):
+	button_press.visible = false
 	for i in range(3):
 		skill_table.get_node(str(i+1)).visible = false
 		if i == 0:
@@ -55,6 +61,7 @@ func change_skill(skill_list):
 		if i < len(skill_list) and skill_list[i] != null:
 			skill_table.get_node(str(i+1)).visible = true
 			skill_table.get_node(str(i+1)+"/Texture").texture = load(skill_list[i]["image_skill"])
+			button_press.visible = true
 		
 
 func create_buff(buff_name, icon, buff_time):

@@ -29,6 +29,7 @@ func _ready():
 		attack_delay = 0.25
 
 func _process(delta):
+	bullet_damage = get_parent().damage
 	if death:
 		return
 

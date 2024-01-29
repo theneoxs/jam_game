@@ -5,6 +5,8 @@ extends CanvasLayer
 
 func get_data(score):
 	score_text.text = str(score) + " pts"
+	if Global.user_name == "":
+		Global.user_name = Global.generate_word(Global.characters, 12)
 	nickname_text.text = Global.user_name
 	Net.update_data(Global.user_name, score)
 	
