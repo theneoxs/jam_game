@@ -17,6 +17,7 @@ var mutations_skill = preload("res://Player/mutation_skill.tscn")
 @onready var enemyinWave
 @onready var killedinWave = 0
 @onready var spawnedEnemy = 0
+@onready var is_dead = false
 var enemy = preload("res://Battle/EnemyRelated/BaseEnemy.tscn")
 
 signal enemyKilled
@@ -46,15 +47,15 @@ func _process(delta):
 		spawnCooldown = 60
 		spawnEnemy()
 	
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and is_dead == false:
 		add_child(pause_mode.instantiate())
 		get_tree().paused = true
 	
-	if Input.is_action_just_pressed("open_mutation") and session_data.percent_acid >= 100:
+	if Input.is_action_just_pressed("open_mutation") and session_data.percent_acid >= 100 and is_dead == false:
 		add_child(mutations.instantiate())
 		get_tree().paused = true
 	
-	if Input.is_action_just_pressed("open_skill_mutation"):
+	if Input.is_action_just_pressed("open_skill_mutation") and is_dead == false:
 		add_child(mutations_skill.instantiate())
 		get_tree().paused = true
 
@@ -83,4 +84,5 @@ func _on_enemy_killed():
 
 
 func _on_player_death(bool):
+	is_dead = true
 	game_over_mode()
