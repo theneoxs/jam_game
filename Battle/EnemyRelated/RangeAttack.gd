@@ -48,6 +48,7 @@ func _process(delta):
 
 	if can_attack:
 		_attack()
+		AudioManager.shoot2()
 		can_attack = false
 		attack_timer = attack_delay
 

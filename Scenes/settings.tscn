@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dwuhpgfyc311k"]
 
 [ext_resource type="Script" path="res://Scenes/settings.gd" id="1_7hcvl"]
-[ext_resource type="Texture2D" uid="uid://co7ipp52uimuv" path="res://Res/button.png" id="2_lts36"]
-[ext_resource type="Texture2D" uid="uid://dxy7aus7y5qft" path="res://Res/button pressed.png" id="3_d4ise"]
-[ext_resource type="Texture2D" uid="uid://dqn2gna42tmyb" path="res://Res/button hover.png" id="4_c235j"]
-[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="5_nadqq"]
-[ext_resource type="FontFile" uid="uid://c7fb77pn6jjic" path="res://Res/m5x7.ttf" id="6_1mm5y"]
+[ext_resource type="Texture2D" uid="uid://kamkb7111hi1" path="res://Res/button.png" id="2_lts36"]
+[ext_resource type="Texture2D" uid="uid://ds65sm2pea7tv" path="res://Res/button pressed.png" id="3_d4ise"]
+[ext_resource type="Texture2D" uid="uid://cgx125bmnynr1" path="res://Res/button hover.png" id="4_c235j"]
+[ext_resource type="FontFile" uid="uid://ckhk75yce8vfd" path="res://Res/aseprite-remix.ttf" id="5_nadqq"]
+[ext_resource type="FontFile" uid="uid://cnvs306x3w4sb" path="res://Res/m5x7.ttf" id="6_1mm5y"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
