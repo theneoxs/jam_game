@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dip6jtbj66qmp"]
 
 [ext_resource type="Script" path="res://Scenes/dialogue_head.gd" id="1_dmg3c"]
-[ext_resource type="Texture2D" uid="uid://bb7ykuka703hx" path="res://Res/benis.png" id="1_lclbw"]
-[ext_resource type="FontFile" uid="uid://ckhk75yce8vfd" path="res://Res/aseprite-remix.ttf" id="3_i0y4c"]
-[ext_resource type="Texture2D" uid="uid://1ygrhibkiu4y" path="res://Res/dialog_left.png" id="3_s8bpo"]
-[ext_resource type="Texture2D" uid="uid://dssqc3ruhq3ja" path="res://Res/dialog_centr.png" id="4_kwfo2"]
-[ext_resource type="Texture2D" uid="uid://3hxpeimulail" path="res://Res/dialog_right.png" id="5_euyo1"]
+[ext_resource type="Texture2D" uid="uid://b0pq4g5ut2arq" path="res://Res/benis.png" id="1_lclbw"]
+[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="3_i0y4c"]
+[ext_resource type="Texture2D" uid="uid://c8w030vdh2n1x" path="res://Res/dialog_left.png" id="3_s8bpo"]
+[ext_resource type="Texture2D" uid="uid://cm25hhjfdnugi" path="res://Res/dialog_centr.png" id="4_kwfo2"]
+[ext_resource type="Texture2D" uid="uid://dlkfbsnrbxp3n" path="res://Res/dialog_right.png" id="5_euyo1"]
 
 [node name="DialogueHead" type="Control"]
 layout_mode = 3
@@ -99,7 +99,6 @@ text = "C'mob, buddy, i need to exxxperiment!"
 
 [node name="ShowDiagTimer" type="Timer" parent="."]
 one_shot = true
-autostart = true
 
 [node name="HideDiagTimer" type="Timer" parent="."]
 wait_time = 3.0

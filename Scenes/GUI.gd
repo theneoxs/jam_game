@@ -17,6 +17,28 @@ var buff_icon = preload("res://buff_icon.tscn")
 
 var timer = 0
 
+@onready var head = $DialogueHead
+@onready var head_timer = $DialogueHead/Timer
+@onready var head_hide_timer = $DialogueHead/HideTimer
+var head_time = 10
+
+var den_diag = [
+	"Ehehehehehehehe, good, very good...",
+	"That's all? I think that you stronger...",
+	"And if you add even more experimentation, will you hold up just as well?",
+	"Don't be upset, for people like you there is always a stronger test tube.",
+	"Come on, come on, attack!",
+	"EXXXPERIMENTS! MORE EXXXPERIMENTS!! MOOORE!!!"
+]
+
+func _ready():
+	start_den_timer()
+
+func start_den_timer():
+	head_time = randi_range(30, 90)
+	head_timer.wait_time = head_time
+	head_timer.start()
+
 func set_toxic_value(value):
 	#print(value)
 	button_press_toxic.visible = false
@@ -73,3 +95,14 @@ func create_buff(buff_name, icon, buff_time):
 
 func delete_buff(buff_name):
 	buff_table.get_node(buff_name).queue_free()
+
+
+func _on_timer_timeout():
+	head_hide_timer.start()
+	head.set_data(den_diag[randi_range(0,len(den_diag)-1)], 1, 200)
+	head.visible = true
+
+
+func _on_hide_timer_timeout():
+	start_den_timer()
+	head.visible = false

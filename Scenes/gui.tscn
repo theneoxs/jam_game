@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4t080anv7fgf"]
+[gd_scene load_steps=17 format=3 uid="uid://c4t080anv7fgf"]
 
 [ext_resource type="Script" path="res://Scenes/GUI.gd" id="1_gvndy"]
 [ext_resource type="Texture2D" uid="uid://t7u331pyvy35" path="res://Res/toxic.png" id="2_v8ev3"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://h34qnp3atlsh" path="res://Res/clock.png" id="9_dtwy2"]
 [ext_resource type="Texture2D" uid="uid://c4arsg6udp0w1" path="res://Res/effects/skill frame.png" id="10_vnwai"]
 [ext_resource type="Texture2D" uid="uid://jr7n0gl7beng" path="res://Res/frame2.png" id="12_o7dig"]
+[ext_resource type="PackedScene" uid="uid://dip6jtbj66qmp" path="res://Scenes/dialogue_head.tscn" id="13_s6f3c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53x4l"]
 atlas = ExtResource("7_r5u6n")
@@ -413,3 +414,20 @@ theme_override_fonts/font = ExtResource("4_vi6kt")
 theme_override_font_sizes/font_size = 16
 text = "Skill menu"
 vertical_alignment = 1
+
+[node name="DialogueHead" parent="." instance=ExtResource("13_s6f3c")]
+visible = false
+offset_left = 1071.0
+offset_top = 501.0
+offset_right = 1265.0
+offset_bottom = 702.0
+
+[node name="Timer" type="Timer" parent="DialogueHead"]
+one_shot = true
+
+[node name="HideTimer" type="Timer" parent="DialogueHead"]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="DialogueHead/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DialogueHead/HideTimer" to="." method="_on_hide_timer_timeout"]

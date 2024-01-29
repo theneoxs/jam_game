@@ -80,6 +80,7 @@ func _process(delta):
 
 func _test(value):
 	#print("Received value:", value)
+	pass
 
 
 func _on_player_death(bool):

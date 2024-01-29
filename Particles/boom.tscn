@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://wu4j5ckw3g08"]
+
+[ext_resource type="Script" path="res://Particles/boom.gd" id="1_u8j0l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5dwfb"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_vbm40"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.237705, 0.770492)
+colors = PackedColorArray(0.971527, 0.491227, 0, 1, 0.374547, 0.203985, 0.0152939, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_74o2q"]
+gradient = SubResource("Gradient_vbm40")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f2817"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 28.32
+angle_max = 695.7
+direction = Vector3(0, 0, 0)
+spread = 115.787
+orbit_velocity_max = 0.359
+radial_velocity_min = 72.05
+radial_velocity_max = 399.66
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 15.73
+attractor_interaction_enabled = false
+scale_min = 4.32
+scale_max = 9.62
+color = Color(0.984314, 0.556863, 0.52549, 1)
+color_ramp = SubResource("GradientTexture1D_74o2q")
+anim_speed_max = 4.49
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytvdi"]
+radius = 401.045
+
+[node name="BoomParticle" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_5dwfb")
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_f2817")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.83
+script = ExtResource("1_u8j0l")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 7
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ytvdi")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

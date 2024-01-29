@@ -23,7 +23,7 @@ var dash_vector = Vector2()
 
 func _ready():
 	anim_play.current_animation = "idle"
-	#hp = max_hp
+	hp = max_hp
 
 func show_hp():
 	get_parent().gui.set_max_hp_value(max_hp)

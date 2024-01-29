@@ -7,11 +7,11 @@ var skill_list_queue = []
 @onready var buff_queue = get_parent().get_node("BuffQueue")
 
 @onready var common_skills = [$Skill1, $Skill2, $Skill3, $Skill4]
-@onready var rare_skills = [$Skill5]
+@onready var rare_skills = [$Skill5, $Skill6]
 
 func _ready():
 	randomize()
-	skill_list_queue.append($Skill5)
+	skill_list_queue.append($Skill6)
 	skill_list_queue.append($Skill1)
 	skill_list_queue.append($Skill2)
 	skill_list_queue.append($Skill3)
@@ -20,7 +20,7 @@ func _ready():
 func get_new_skill():
 	var chance_drop = randi_range(0, 100)
 	if chance_drop > 60:
-		create_new_skill
+		create_new_skill()
 
 func create_new_skill():
 	var new_skill = null
@@ -74,15 +74,15 @@ func add_skill_to_pos(skill : skill_class, index : int):
 #10% - ничего.
 func combine_skill(skill1 : skill_class, skill2 : skill_class):
 	var rand_int = int(randi_range(0, 100))
-	if rand_int < 20:
+	if rand_int < 25:
 		remove_skill(skill2)
 		return modify_skill(skill1, 1)
 	
-	if rand_int >= 20 and rand_int < 40:
+	if rand_int >= 25 and rand_int < 50:
 		remove_skill(skill1)
 		return modify_skill(skill2, 1)
 	
-	if rand_int >= 40 and rand_int < 60:
+	if rand_int >= 50 and rand_int < 60:
 		var new_skill = get_new_skill()
 		remove_skill(skill2)
 		remove_skill(skill1)
