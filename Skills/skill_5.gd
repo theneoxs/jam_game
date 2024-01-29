@@ -16,6 +16,7 @@ func _ready():
 	})
 
 func release():
+	AudioManager.shoot2()
 	for i in range(3):
 		for j in range(-30, 31, 15):
 			var new_bullet = bullet.instantiate()

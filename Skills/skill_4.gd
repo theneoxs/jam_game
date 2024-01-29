@@ -10,3 +10,4 @@ func _ready():
 
 func release():
 	get_parent().buff_queue.add_buff(3, combine_modify_skill)
+	AudioManager.perkUse()

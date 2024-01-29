@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://c48x5uedinvt7"]
 
-[ext_resource type="Texture2D" uid="uid://dcek8l4n6dqt4" path="res://Res/menu frame.png" id="1_a0o4o"]
+[ext_resource type="Texture2D" uid="uid://ch3d2txg1ig1b" path="res://Res/menu frame.png" id="1_a0o4o"]
 [ext_resource type="Script" path="res://Scenes/pause.gd" id="1_s5of8"]
-[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="2_vqksf"]
-[ext_resource type="Texture2D" uid="uid://co7ipp52uimuv" path="res://Res/button.png" id="3_mrfg3"]
-[ext_resource type="Texture2D" uid="uid://dxy7aus7y5qft" path="res://Res/button pressed.png" id="5_x0mo2"]
-[ext_resource type="Texture2D" uid="uid://dqn2gna42tmyb" path="res://Res/button hover.png" id="6_lpmyp"]
+[ext_resource type="FontFile" uid="uid://ckhk75yce8vfd" path="res://Res/aseprite-remix.ttf" id="2_vqksf"]
+[ext_resource type="Texture2D" uid="uid://kamkb7111hi1" path="res://Res/button.png" id="3_mrfg3"]
+[ext_resource type="Texture2D" uid="uid://by2wvdgtk2xcy" path="res://Res/button pressed.png" id="5_x0mo2"]
+[ext_resource type="Texture2D" uid="uid://yafumkc5xihw" path="res://Res/button hover.png" id="6_lpmyp"]
 
 [node name="Pause" type="CanvasLayer"]
 process_mode = 3

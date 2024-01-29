@@ -72,6 +72,7 @@ func _process(delta):
 		shot_delay.start()
 		var new_bullet = bullet.instantiate()
 		Bullet.add_child(new_bullet)
+		AudioManager.gunshoot()
 		new_bullet.set_params(bullet_damage, bullet_speed, bullet_size, get_parent())
 		new_bullet.global_position = point.global_position
 		new_bullet.push(push_vector.rotated(rotation))

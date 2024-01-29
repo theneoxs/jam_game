@@ -20,6 +20,7 @@ config/icon="res://Res/icon.svg"
 Global="*res://global.tscn"
 Net="*res://net.tscn"
 Bullet="*res://Scenes/bullet.tscn"
+AudioManager="*res://Scenes/audio_manager.tscn"
 
 [display]
 

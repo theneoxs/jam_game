@@ -16,3 +16,4 @@ func release():
 	add_child(heal)
 	get_parent().link_player.hp += 10 * combine_modify_skill
 	get_parent().link_player.show_hp()
+	AudioManager.perkUse()

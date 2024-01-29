@@ -25,9 +25,13 @@ func _process(delta):
 		show_loader(false)
 
 func _on_end_btn_pressed():
+	AudioManager.buttonClck()
+	AudioManager.buttonClck()
+	AudioManager.buttonClck()
 	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
 
 func _on_update_btn_pressed():
+	AudioManager.buttonClck()
 	Net._get_leaderboards()
 	show_loader(true)
 

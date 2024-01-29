@@ -39,6 +39,7 @@ func _on_texture_rect_gui_input(event):
 		choose_block = get_parent().player.gun
 		dmg_text.text = "Damage: %.2f" % choose_block.bullet_damage
 		damage = choose_block.bullet_damage
+		AudioManager.buttonClck()
 		print("Choose 1")
 
 
@@ -50,15 +51,18 @@ func _on_texture_rect_2_gui_input(event):
 		choose_block = get_parent().player.sword
 		dmg_text.text = "Damage: %.2f" % choose_block.damage
 		damage = choose_block.damage
+		AudioManager.buttonClck()
 		print("Choose 2")
 
 func _exit_tree():
 	get_tree().paused = false
 
 func _on_exit_btn_pressed():
+	AudioManager.buttonClck()
 	queue_free()
 
 func _on_start_btn_pressed():
+	AudioManager.buttonClck()
 	get_parent().session_data.percent_acid = 0.0
 	get_parent().gui.set_toxic_value(0.0)
 	var rand_upd = randi_range(0, 100)

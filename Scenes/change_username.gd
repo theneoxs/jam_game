@@ -8,4 +8,5 @@ func _ready():
 
 func _on_change_btn_pressed():
 	Global.user_name = new_name_field.text
+	AudioManager.buttonClck()
 	queue_free()

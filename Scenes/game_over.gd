@@ -13,8 +13,14 @@ func get_data(score):
 
 
 func _on_restart_btn_pressed():
+	AudioManager.buttonClck()
+	AudioManager.inGameMusicStop()
+	AudioManager.inGameMusic()
 	get_tree().reload_current_scene()
 
 
 func _on_exit_btn_pressed():
+	AudioManager.buttonClck()
+	AudioManager.inGameMusicStop()
+	AudioManager.menuMusic()
 	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")

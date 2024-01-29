@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://cljr1s4m0st6p"]
+
+[ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="1_r3dmi"]
+[ext_resource type="AudioStream" uid="uid://dc1qvq4xfstg2" path="res://Res/Sounds/InGameMusic.ogg" id="1_u336a"]
+[ext_resource type="AudioStream" uid="uid://iacpp3bt0rm4" path="res://Res/Sounds/Menu.ogg" id="2_2f40d"]
+[ext_resource type="AudioStream" uid="uid://bbaaww7vn68rn" path="res://Res/Sounds/GunSound.wav" id="3_j2ma4"]
+[ext_resource type="AudioStream" uid="uid://dpyijakt5bu2j" path="res://Res/Sounds/Button.wav" id="4_lkvho"]
+[ext_resource type="AudioStream" uid="uid://cjbtjlhg60km3" path="res://Res/Sounds/UsePerk.wav" id="5_47tut"]
+[ext_resource type="AudioStream" uid="uid://cdiqb3p0q3su2" path="res://Res/Sounds/WavePerkSound.wav" id="7_xh2qv"]
+[ext_resource type="AudioStream" uid="uid://c13a57nxqjqqm" path="res://Res/Sounds/Steps.wav" id="8_orypf"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_r3dmi")
+
+[node name="inGameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_u336a")
+volume_db = -34.666
+
+[node name="menuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2f40d")
+volume_db = -29.982
+autoplay = true
+
+[node name="Effects" type="Node" parent="."]
+
+[node name="gun_shoot" type="AudioStreamPlayer" parent="Effects"]
+stream = ExtResource("3_j2ma4")
+volume_db = -27.171
+
+[node name="button_click" type="AudioStreamPlayer" parent="Effects"]
+stream = ExtResource("4_lkvho")
+volume_db = -27.733
+
+[node name="usePerk" type="AudioStreamPlayer" parent="Effects"]
+stream = ExtResource("5_47tut")
+volume_db = -18.739
+
+[node name="Shoot2" type="AudioStreamPlayer" parent="Effects"]
+stream = ExtResource("7_xh2qv")
+volume_db = -19.676
+
+[node name="step" type="AudioStreamPlayer" parent="Effects"]
+stream = ExtResource("8_orypf")
+volume_db = -19.676
