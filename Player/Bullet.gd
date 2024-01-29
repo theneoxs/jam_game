@@ -48,8 +48,8 @@ func _explosion():
 	pass
 
 func _on_body_entered(body):
-	if body.get_parent() is Enemy:
-		body.get_parent().getHit(damage)
+	if body is Enemy:
+		body.getHit(damage)
 	elif body.name == "Player":
 		body.hp -= damage
 		body.show_hp()

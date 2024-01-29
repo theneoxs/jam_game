@@ -71,9 +71,9 @@ func attack():
 	is_attacked = true
 
 func _on_area_2d_body_entered(body):
-	if body.get_parent() is Enemy and is_attacked == true:
+	if body is Enemy and is_attacked == true:
 		print("hit")
-		body.get_parent().getHit(damage)
+		body.getHit(damage)
 
 
 func _on_player_death(bool):

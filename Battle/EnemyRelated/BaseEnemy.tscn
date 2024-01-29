@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dacv7f648vx8v"]
 
 [ext_resource type="Script" path="res://Battle/EnemyRelated/BaseEnemy.gd" id="1_ltjs2"]
-[ext_resource type="Texture2D" uid="uid://dm2msemc4wvsd" path="res://Res/players blue x1.png" id="2_pvxuw"]
+[ext_resource type="Texture2D" uid="uid://crci1ots1g88" path="res://Res/players blue x1.png" id="2_pvxuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvaav"]
 size = Vector2(34.8507, 23.0724)
@@ -64,17 +64,21 @@ _data = {
 "walk": SubResource("Animation_6ejfj")
 }
 
-[node name="BaseEnemy" type="Node2D"]
+[node name="BaseEnemy" type="RigidBody2D"]
+collision_layer = 2
 script = ExtResource("1_ltjs2")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.8147e-06, -12.0529)
 rotation = -3.14159
 scale = Vector2(1.09725, -1.63233)
 shape = SubResource("RectangleShape2D_cvaav")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+visible = false
+collision_layer = 2
+floor_block_on_wall = false
+platform_floor_layers = 4294967040
 
 [node name="Mut BAR" type="ProgressBar" parent="."]
 offset_left = -18.0

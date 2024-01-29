@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 class_name Enemy
 @onready var maxHp:float = 100
 @onready var hp:float = 100
@@ -87,7 +87,9 @@ func moveTowardsPlayer(delta):
 		else:
 			$Icon2.flip_h = true
 		var velocity = direction * speed * delta
-		translate(velocity)
+		#$CharacterBody2D.move_and_collide(velocity)
+		move_and_collide(velocity)
+		#translate(velocity)
 
 func attack():
 	pass

@@ -1,0 +1,127 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwuhpgfyc311k"]
+
+[ext_resource type="Script" path="res://Scenes/settings.gd" id="1_7hcvl"]
+[ext_resource type="Texture2D" uid="uid://co7ipp52uimuv" path="res://Res/button.png" id="2_lts36"]
+[ext_resource type="Texture2D" uid="uid://dxy7aus7y5qft" path="res://Res/button pressed.png" id="3_d4ise"]
+[ext_resource type="Texture2D" uid="uid://dqn2gna42tmyb" path="res://Res/button hover.png" id="4_c235j"]
+[ext_resource type="FontFile" uid="uid://bnimycfhliitt" path="res://Res/aseprite-remix.ttf" id="5_nadqq"]
+[ext_resource type="FontFile" uid="uid://c7fb77pn6jjic" path="res://Res/m5x7.ttf" id="6_1mm5y"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hcvl")
+metadata/_edit_horizontal_guides_ = [229.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.470588, 0.513726, 0.603922, 1)
+
+[node name="EndBtn" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = -105.0
+offset_right = 228.0
+offset_bottom = -55.0
+grow_vertical = 0
+texture_normal = ExtResource("2_lts36")
+texture_pressed = ExtResource("3_d4ise")
+texture_hover = ExtResource("4_c235j")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="EndBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("5_nadqq")
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundMain" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 217.0
+offset_right = 525.0
+offset_bottom = 233.0
+max_value = 120.0
+
+[node name="Label" type="Label" parent="SoundMain"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -19.0
+offset_right = -16.0
+offset_bottom = 7.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_1mm5y")
+theme_override_font_sizes/font_size = 32
+text = "Main"
+
+[node name="SoundMusic" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 266.0
+offset_right = 525.0
+offset_bottom = 282.0
+max_value = 120.0
+
+[node name="Label" type="Label" parent="SoundMusic"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -19.0
+offset_right = -16.0
+offset_bottom = 7.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_1mm5y")
+theme_override_font_sizes/font_size = 32
+text = "Music"
+
+[node name="SoundSFX" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 320.0
+offset_right = 525.0
+offset_bottom = 336.0
+max_value = 120.0
+
+[node name="Label" type="Label" parent="SoundSFX"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -19.0
+offset_right = -16.0
+offset_bottom = 7.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_1mm5y")
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+
+[connection signal="pressed" from="EndBtn" to="." method="_on_end_btn_pressed"]
+[connection signal="value_changed" from="SoundMain" to="." method="_on_sound_main_value_changed"]
+[connection signal="value_changed" from="SoundMusic" to="." method="_on_sound_music_value_changed"]
+[connection signal="value_changed" from="SoundSFX" to="." method="_on_sound_sfx_value_changed"]

@@ -38,6 +38,8 @@ func _on_exit_btn_pressed():
 
 
 func _on_start_btn_pressed():
+	if first_skill == null or second_skill == null:
+		return
 	var combine_skill = skill_list.combine_skill(first_skill, second_skill)
 	if combine_skill != null:
 		result_skill_table.texture = load(combine_skill.image_skill)
