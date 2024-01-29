@@ -122,14 +122,16 @@ func applyMuttation():
 	match random_key:
 		"AttackUp":
 			damage*=2
-			speed*=1.5
+			speed*=1.2
 			attackDelay *= 0.5
 		"Regen":
 			iSRegenerator=true
-			maxHp *= 2
+			maxHp *= 1.5
 			hp = maxHp
 		"Speedster":
-			speed*=4
+			speed*=2
+			if speed > 400:
+				speed = 400
 			set_scale(Vector2(0.75, 0.75))
 		"Tank":
 			maxHp *= 3

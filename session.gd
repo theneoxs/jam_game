@@ -31,7 +31,7 @@ func increace_score(value):
 
 func new_wave(inc = 1):
 	wave += inc
-	enemyPerWave = baseEnemyPerWave * diff_modificator * 0.5
+	enemyPerWave = 1 + baseEnemyPerWave * diff_modificator * 0.5
 	get_parent().gui.set_wave(wave, int(diff_modificator))
 	return enemyPerWave
 

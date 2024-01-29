@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cynchbnkk75hp"]
 
 [ext_resource type="Script" path="res://Battle/EnemyRelated/ShortAttack.gd" id="1_wlw0a"]
-[ext_resource type="Texture2D" uid="uid://b484r7p7ey14w" path="res://Res/weapon.png" id="2_ppjqa"]
+[ext_resource type="Texture2D" uid="uid://bi0dqbxj4n0n" path="res://Res/weapon.png" id="2_ppjqa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_go6mx"]
 atlas = ExtResource("2_ppjqa")
