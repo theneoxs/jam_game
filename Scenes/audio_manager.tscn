@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://cerc45as0jiyu"]
 
 [ext_resource type="Script" path="res://Scenes/audio_manager.gd" id="1_r3dmi"]
-[ext_resource type="AudioStream" uid="uid://cvho842re7njb" path="res://Res/Sounds/InGameMusic.ogg" id="1_u336a"]
-[ext_resource type="AudioStream" uid="uid://dthpg3w0l728s" path="res://Res/Sounds/Menu.ogg" id="2_2f40d"]
-[ext_resource type="AudioStream" uid="uid://bu2f105mdu7i5" path="res://Res/Sounds/GunSound.wav" id="3_j2ma4"]
-[ext_resource type="AudioStream" uid="uid://m11eu2galh3b" path="res://Res/Sounds/Button.wav" id="4_lkvho"]
-[ext_resource type="AudioStream" uid="uid://5dl7vhfxjbk5" path="res://Res/Sounds/UsePerk.wav" id="5_47tut"]
-[ext_resource type="AudioStream" uid="uid://5p3ajlujfujn" path="res://Res/Sounds/WavePerkSound.wav" id="7_xh2qv"]
-[ext_resource type="AudioStream" uid="uid://cbqxmbsmxvbjk" path="res://Res/Sounds/Steps.wav" id="8_orypf"]
+[ext_resource type="AudioStream" uid="uid://b1qe5tth6dyvm" path="res://Res/Sounds/InGameMusic.ogg" id="1_u336a"]
+[ext_resource type="AudioStream" uid="uid://bcq3rapdcvehe" path="res://Res/Sounds/Menu.ogg" id="2_2f40d"]
+[ext_resource type="AudioStream" uid="uid://b6mvthtiwfyaf" path="res://Res/Sounds/GunSound.wav" id="3_j2ma4"]
+[ext_resource type="AudioStream" uid="uid://colmj0kf6ug3u" path="res://Res/Sounds/Button.wav" id="4_lkvho"]
+[ext_resource type="AudioStream" uid="uid://c51v0usv55moq" path="res://Res/Sounds/UsePerk.wav" id="5_47tut"]
+[ext_resource type="AudioStream" uid="uid://bbbr2l7fr2cyh" path="res://Res/Sounds/WavePerkSound.wav" id="7_xh2qv"]
+[ext_resource type="AudioStream" uid="uid://do001nxqpjnc0" path="res://Res/Sounds/Steps.wav" id="8_orypf"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
@@ -50,3 +50,6 @@ bus = &"SFX"
 stream = ExtResource("8_orypf")
 volume_db = -19.676
 bus = &"SFX"
+
+[connection signal="finished" from="inGameMusic" to="." method="_on_in_game_music_finished"]
+[connection signal="finished" from="menuMusic" to="." method="_on_menu_music_finished"]

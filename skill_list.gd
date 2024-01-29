@@ -19,18 +19,21 @@ func _ready():
 
 func get_new_skill():
 	var chance_drop = randi_range(0, 100)
-	var new_skill = null
 	if chance_drop > 60:
-		var chance_rare_drop = randi_range(0, 10)
-		if chance_rare_drop >= 7:
-			new_skill = rare_skills[randi_range(0, len(rare_skills)-1)]
-		elif chance_rare_drop >= 3:
-			new_skill = common_skills[randi_range(0, len(common_skills)-1)]
-		else:
-			new_skill = common_skills[0]
-		add_skill(new_skill)
-		get_parent().gui.change_skill(skill_list_queue.slice(0, 3))
-		return skill_list_queue[-1]
+		create_new_skill
+
+func create_new_skill():
+	var new_skill = null
+	var chance_rare_drop = randi_range(0, 10)
+	if chance_rare_drop >= 7:
+		new_skill = rare_skills[randi_range(0, len(rare_skills)-1)]
+	elif chance_rare_drop >= 3:
+		new_skill = common_skills[randi_range(0, len(common_skills)-1)]
+	else:
+		new_skill = common_skills[0]
+	add_skill(new_skill)
+	get_parent().gui.change_skill(skill_list_queue.slice(0, 3))
+	return skill_list_queue[-1]
 
 func _process(delta):
 	if Input.is_action_just_pressed("skill_pressed"):

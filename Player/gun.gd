@@ -79,7 +79,7 @@ func _process(delta):
 		new_bullet.rotation = rotation
 
 func _test(value):
-	print("Received value:", value)
+	#print("Received value:", value)
 
 
 func _on_player_death(bool):

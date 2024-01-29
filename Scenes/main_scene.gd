@@ -3,16 +3,17 @@ extends Control
 var change_username = preload("res://Scenes/change_username.tscn")
 
 @onready var user_name_text = $UserName
-@onready var buttonSound = $AudioManager/Effects/button_click
 
 func _process(delta):
 	user_name_text.text = Global.user_name if Global.user_name != "" else "No username"
 
 func _on_end_btn_pressed():
+	AudioManager.buttonClck()
 	get_tree().quit()
 
 func _on_setting_btn_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/settings.tscn")
+	AudioManager.buttonClck()
 
 func _on_leader_btn_pressed():
 	get_tree().change_scene_to_file("res://Scenes/leaderboard.tscn")

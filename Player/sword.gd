@@ -72,8 +72,8 @@ func attack():
 
 func _on_area_2d_body_entered(body):
 	if body is Enemy and is_attacked == true:
-		print("hit")
 		body.getHit(damage)
+		body.dropGarantAbility()
 
 
 func _on_player_death(bool):

@@ -40,7 +40,7 @@ func _on_texture_rect_gui_input(event):
 		dmg_text.text = "Damage: %.2f" % choose_block.bullet_damage
 		damage = choose_block.bullet_damage
 		AudioManager.buttonClck()
-		print("Choose 1")
+		#print("Choose 1")
 
 
 func _on_texture_rect_2_gui_input(event):
@@ -52,7 +52,7 @@ func _on_texture_rect_2_gui_input(event):
 		dmg_text.text = "Damage: %.2f" % choose_block.damage
 		damage = choose_block.damage
 		AudioManager.buttonClck()
-		print("Choose 2")
+		#print("Choose 2")
 
 func _exit_tree():
 	get_tree().paused = false

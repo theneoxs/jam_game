@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends CharacterBody2D
 class_name Enemy
 @onready var maxHp:float = 100
 @onready var hp:float = 100
@@ -102,7 +102,10 @@ func death():
 	
 func dropAbbility():
 	get_parent().get_parent().skill_list.get_new_skill()
-	
+
+func dropGarantAbility():
+	get_parent().get_parent().skill_list.create_new_skill()
+
 func move():
 	pass
 	

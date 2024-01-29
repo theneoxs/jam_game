@@ -64,8 +64,12 @@ _data = {
 "walk": SubResource("Animation_6ejfj")
 }
 
-[node name="BaseEnemy" type="RigidBody2D"]
+[node name="BaseEnemy" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.785398
+platform_on_leave = 1
 script = ExtResource("1_ltjs2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

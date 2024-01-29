@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ck0igiwyl5jtk" path="res://Res/icon.svg" id="7_ockte"]
 [ext_resource type="PackedScene" uid="uid://dfsl446lie6xh" path="res://Skills/buff_queue.tscn" id="8_tuvph"]
 [ext_resource type="PackedScene" uid="uid://uc6pvbu8gxwj" path="res://session.tscn" id="9_6rekq"]
-[ext_resource type="Texture2D" uid="uid://cfbto0nfcv85c" path="res://Res/tileset x1.png" id="9_wk6id"]
+[ext_resource type="Texture2D" uid="uid://bqcrey3ava6sd" path="res://Res/tileset x1.png" id="9_wk6id"]
 [ext_resource type="PackedScene" uid="uid://6b2hdefjcvdy" path="res://skill_list.tscn" id="10_o8smn"]
 [ext_resource type="PackedScene" uid="uid://xvdvkmrmx52" path="res://Player/Player.tscn" id="15_i1y8m"]
 
@@ -2954,7 +2954,7 @@ texture = ExtResource("9_wk6id")
 
 [sub_resource type="TileSet" id="TileSet_125pp"]
 physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 7
+physics_layer_0/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_dkkb0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqnxi"]
@@ -5664,6 +5664,7 @@ texture = ExtResource("9_wk6id")
 
 [sub_resource type="TileSet" id="TileSet_bstww"]
 physics_layer_0/collision_layer = 128
+physics_layer_0/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_xqnxi")
 
 [node name="Game" type="Node2D" groups=["Game"]]

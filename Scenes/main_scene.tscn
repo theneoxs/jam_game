@@ -104,7 +104,6 @@ vertical_alignment = 1
 [node name="SettingBtn" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-disabled = true
 texture_normal = ExtResource("2_lue7m")
 texture_pressed = ExtResource("3_wb142")
 texture_hover = ExtResource("4_cvm0c")

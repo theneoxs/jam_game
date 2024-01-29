@@ -37,11 +37,11 @@ func _authentication_request():
 	var file = FileAccess.open("user://LootLocker.data", FileAccess.READ)
 	if file != null:
 		player_identifier = file.get_as_text()
-		print("player ID="+player_identifier)
+		#print("player ID="+player_identifier)
 		file.close()
 		
 	if player_identifier != null and player_identifier.length() > 1:
-		print("player session exists, id="+player_identifier)
+		#print("player session exists, id="+player_identifier)
 		player_session_exists = true
 	if(player_identifier.length() > 1):
 		player_session_exists = true
@@ -65,7 +65,7 @@ func _authentication_request():
 	add_http_sender(auth_http, _on_authentication_request_completed, url, headers, HTTPClient.METHOD_POST, data)
 	
 	# Печать результатов для дебага
-	print(data)
+	#print(data)
 
 #Обработка инициации соединения
 func _on_authentication_request_completed(result, response_code, headers, body):
@@ -73,7 +73,7 @@ func _on_authentication_request_completed(result, response_code, headers, body):
 	json.parse(body.get_string_from_utf8())
 	
 	# Печать ответа сервера
-	print(json.get_data())
+	#print(json.get_data())
 	
 	# Сохранение идентификатора в файл (можно в дальнейшем переиспользовать)
 	var file = FileAccess.open("user://LootLocker.data", FileAccess.WRITE)
@@ -94,7 +94,7 @@ func _on_authentication_request_completed(result, response_code, headers, body):
 
 #Получение всей лидерборды
 func _get_leaderboards():
-	print("Getting leaderboards")
+	#print("Getting leaderboards")
 	var url = "https://api.lootlocker.io/game/leaderboards/"+leaderboard_key+"/list?count=100"
 	var headers = ["Content-Type: application/json", "x-session-token:"+session_token]
 	
@@ -106,7 +106,7 @@ func _on_leaderboard_request_completed(result, response_code, headers, body):
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	
-	print(json.get_data())
+	#print(json.get_data())
 	
 	# Форматирование лидерборды
 	var leaderboardFormatted = []
@@ -118,7 +118,7 @@ func _on_leaderboard_request_completed(result, response_code, headers, body):
 		}
 		leaderboardFormatted.append(data)
 	# Печать форматированной лидерборды
-	print(leaderboardFormatted)
+	#print(leaderboardFormatted)
 	Global.data_leaderboard = leaderboardFormatted
 	
 	leaderboard_http.queue_free()
@@ -135,11 +135,11 @@ func _upload_score(score: int):
 	add_http_sender(submit_score_http, _on_upload_score_request_completed, url, headers, HTTPClient.METHOD_POST, data)
 	
 	# Печать для дебага
-	print(data)
+	#print(data)
 
 #Метод сохранения данных о новом имени пользователя
 func _change_player_name(player_name):
-	print("Changing player name")
+	#print("Changing player name")
 	
 	var data = { 
 		"name": str(player_name) 
@@ -156,12 +156,12 @@ func _on_player_set_name_request_completed(result, response_code, headers, body)
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	
-	print(json.get_data())
+	#print(json.get_data())
 	set_name_http.queue_free()
 
 #Метод получения данных о пользователе по его идентификатору (имени)
 func _get_player_name():
-	print("Getting player name")
+	#print("Getting player name")
 	var url = "https://api.lootlocker.io/game/player/name"
 	var headers = ["Content-Type: application/json", "x-session-token:"+session_token]
 	
@@ -175,14 +175,14 @@ func _on_player_get_name_request_completed(result, response_code, headers, body)
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	
-	print(json.get_data().name)
+	#print(json.get_data().name)
 
 #Обработка результата отправки рейтинга
 func _on_upload_score_request_completed(result, response_code, headers, body) :
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	
-	print(json.get_data())
+	#print(json.get_data())
 	
 	submit_score_http.queue_free()
 

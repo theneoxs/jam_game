@@ -43,3 +43,11 @@ func shoot2():
 
 func step():
 	steps.play()
+
+
+func _on_in_game_music_finished():
+	game_music.play()
+
+
+func _on_menu_music_finished():
+	menu_music.play()
