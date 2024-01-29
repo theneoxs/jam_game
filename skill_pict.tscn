@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://h6pfactd5jlv"]
+
+[ext_resource type="Texture2D" uid="uid://jr7n0gl7beng" path="res://Res/frame2.png" id="1_dwjby"]
+[ext_resource type="Script" path="res://skill_pict.gd" id="2_iepig"]
+
+[node name="SkillPict" type="TextureRect"]
+texture = ExtResource("1_dwjby")
+script = ExtResource("2_iepig")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -16.0
+offset_right = 15.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5

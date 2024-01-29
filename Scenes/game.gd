@@ -3,6 +3,7 @@ extends Node2D
 var pause_mode = preload("res://Scenes/pause.tscn")
 var game_over = preload("res://Scenes/game_over.tscn")
 var mutations = preload("res://Scenes/mutatuion_weapon.tscn")
+var mutations_skill = preload("res://Player/mutation_skill.tscn")
 
 @onready var gui = $GUI
 @onready var camera = $Camera2D
@@ -51,6 +52,10 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("open_mutation") and session_data.percent_acid >= 100:
 		add_child(mutations.instantiate())
+		get_tree().paused = true
+	
+	if Input.is_action_just_pressed("open_skill_mutation"):
+		add_child(mutations_skill.instantiate())
 		get_tree().paused = true
 
 func spawnEnemy():
