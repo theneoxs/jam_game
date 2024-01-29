@@ -32,7 +32,7 @@ func _ready():
 	coef_text.text = "Strong/weakness coeff: %.2f" % coef
 
 func _on_texture_rect_gui_input(event):
-	if event is InputEventMouseButton and event.pressed and mutation_ready:
+	if event is InputEventMouseButton and event.pressed and mutation_ready and event.button_index == MOUSE_BUTTON_LEFT:
 		mutation_press.disabled = false
 		choose = 1
 		choose_skin.texture = gun_skin.texture
@@ -43,7 +43,7 @@ func _on_texture_rect_gui_input(event):
 
 
 func _on_texture_rect_2_gui_input(event):
-	if event is InputEventMouseButton and event.pressed and mutation_ready:
+	if event is InputEventMouseButton and event.pressed and mutation_ready and event.button_index == MOUSE_BUTTON_LEFT:
 		mutation_press.disabled = false
 		choose = 2
 		choose_skin.texture = sword_skin.texture
@@ -75,3 +75,5 @@ func _on_start_btn_pressed():
 	if choose_block.name == "Sword":
 		damage = choose_block.damage
 	dmg_text.text = "Damage: %.2f" % damage
+	get_parent().player.max_hp += get_parent().player.max_hp*coef*0.1
+	get_parent().player.show_hp()

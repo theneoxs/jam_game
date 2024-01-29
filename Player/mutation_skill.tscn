@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://doolxgudp75bj"]
+[gd_scene load_steps=12 format=3 uid="uid://doolxgudp75bj"]
 
 [ext_resource type="Script" path="res://Player/mutation_skill.gd" id="1_nw81d"]
 [ext_resource type="Texture2D" uid="uid://dcek8l4n6dqt4" path="res://Res/menu frame.png" id="2_aecps"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ck75yhjelwvpe" path="res://Res/toxic ui element full.png" id="7_ky7q3"]
 [ext_resource type="Texture2D" uid="uid://di3wflinklog3" path="res://Res/toxic ui element empty.png" id="8_lddf5"]
 [ext_resource type="PackedScene" uid="uid://h6pfactd5jlv" path="res://skill_pict.tscn" id="9_p53vv"]
+[ext_resource type="Script" path="res://Player/PressSkill.gd" id="9_sodmj"]
 [ext_resource type="Texture2D" uid="uid://jr7n0gl7beng" path="res://Res/frame2.png" id="10_1kffw"]
 
 [node name="MutationSkill" type="CanvasLayer"]
@@ -205,7 +206,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TextureRect8/ScrollContainer"]
 layout_mode = 2
-alignment = 1
+script = ExtResource("9_sodmj")
 
 [node name="SkillPict" parent="TextureRect/TextureRect8/ScrollContainer/VBoxContainer" instance=ExtResource("9_p53vv")]
 layout_mode = 2
@@ -255,6 +256,26 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
+[node name="LvlText" type="Label" parent="TextureRect/TextureRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = 34.0
+offset_right = 40.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("3_wn3ek")
+theme_override_font_sizes/font_size = 12
+text = "lvl: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect6" type="TextureRect" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 8
@@ -284,6 +305,26 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
+
+[node name="LvlText" type="Label" parent="TextureRect/TextureRect6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = 34.0
+offset_right = 40.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.313726, 0.345098, 0.415686, 1)
+theme_override_fonts/font = ExtResource("3_wn3ek")
+theme_override_font_sizes/font_size = 12
+text = "lvl: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect4" type="TextureRect" parent="TextureRect"]
 layout_mode = 1
@@ -317,3 +358,5 @@ stretch_mode = 5
 
 [connection signal="pressed" from="TextureRect/ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="TextureRect/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="gui_input" from="TextureRect/TextureRect3" to="." method="_on_texture_rect_3_gui_input"]
+[connection signal="gui_input" from="TextureRect/TextureRect6" to="." method="_on_texture_rect_6_gui_input"]

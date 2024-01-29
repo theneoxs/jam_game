@@ -15,6 +15,7 @@ radial_velocity_max = 85.05
 gravity = Vector3(0, 0, 0)
 radial_accel_max = 15.73
 tangential_accel_max = 26.97
+attractor_interaction_enabled = false
 scale_min = 10.0
 scale_max = 20.0
 color = Color(0.968627, 0.968627, 0.968627, 1)

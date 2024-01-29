@@ -76,7 +76,7 @@ func _process(delta):
 
 func regenerate(delta):
 	if hp<maxHp:
-		hp += delta * maxHp/25
+		hp += delta * maxHp/5
 		changeHPbar()
 
 func moveTowardsPlayer(delta):
@@ -124,8 +124,8 @@ func applyMuttation():
 	var currentMuttation = mutations[random_key]
 	match random_key:
 		"AttackUp":
-			damage*=2
-			speed*=1.2
+			damage *= 3
+			speed *= 1.2
 			attackDelay *= 0.5
 			if attackDelay < 0.75:
 				attackDelay = 0.75
@@ -134,15 +134,18 @@ func applyMuttation():
 			maxHp *= 1.5
 			hp = maxHp
 		"Speedster":
-			speed *= 2
+			speed *= 2.5
 			attackDelay *= 0.5
 			if speed > 400:
 				speed = 400
 			set_scale(Vector2(0.75, 0.75))
 		"Tank":
 			maxHp *= 3
+			damage *= 1.5
 			hp = maxHp
-			speed *= 0.5
+			speed *= 1.5
+			if speed > 400:
+				speed = 400
 			set_scale(Vector2(1.5,1.5))
 	
 	modEffect = load(currentMuttation)

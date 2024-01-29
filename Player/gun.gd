@@ -36,9 +36,13 @@ func upgrade_level(inc, coef):
 	if inc > 0:
 		bullet_damage += bullet_damage*coef*0.25
 		attack_delay -= 0.01
+		if attack_delay < 0.05:
+			attack_delay = 0.05
 	else:
 		bullet_damage -= bullet_damage*coef*0.2
 		attack_delay += 0.01
+		if attack_delay > 1.0:
+			attack_delay = 1.0
 
 func show_pict(val1, val2, val3, val4):
 	pass

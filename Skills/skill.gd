@@ -24,6 +24,8 @@ func set_data(data):
 
 func modify_combine(mode : int):
 	combine_modify_skill += mode
+	if combine_modify_skill < 0:
+		combine_modify_skill = 0
 
 func release():
 	return "Это пустой скилл, он ничего не делает"
