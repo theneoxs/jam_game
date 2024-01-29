@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Particles/heal_particle.gd" id="1_vrukt"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rskt3"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5dwfb"]
 particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -28,14 +28,14 @@ radial_velocity_min = 85.05
 radial_velocity_max = 85.05
 gravity = Vector3(0, 0, 0)
 radial_accel_max = 15.73
-tangential_accel_max = 26.97
+attractor_interaction_enabled = false
 scale_max = 5.39
 color = Color(0.984314, 0.556863, 0.52549, 1)
 color_ramp = SubResource("GradientTexture1D_74o2q")
 anim_speed_max = 4.49
 
 [node name="HealParticle" type="GPUParticles2D"]
-material = SubResource("CanvasItemMaterial_rskt3")
+material = SubResource("CanvasItemMaterial_5dwfb")
 emitting = false
 amount = 60
 process_material = SubResource("ParticleProcessMaterial_e4kap")
