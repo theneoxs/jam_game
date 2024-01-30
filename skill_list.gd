@@ -11,7 +11,7 @@ var skill_list_queue = []
 
 func _ready():
 	randomize()
-	skill_list_queue.append($Skill6)
+	skill_list_queue.append($Skill5)
 	skill_list_queue.append($Skill1)
 	skill_list_queue.append($Skill2)
 	skill_list_queue.append($Skill3)
