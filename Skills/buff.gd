@@ -23,7 +23,11 @@ func start():
 
 func _exit_tree():
 	get_parent().player_gun.bullet_damage -= bullet_damage
+	if get_parent().player_gun.bullet_damage < 10:
+		get_parent().player_gun.bullet_damage = 10
 	get_parent().player_sword.damage -= sword_damage
+	if get_parent().player_sword.damage < 10:
+		get_parent().player_sword.damage = 10
 	get_parent().player_gun.bullet_size -= bullet_size
 
 func _on_timer_timeout():
