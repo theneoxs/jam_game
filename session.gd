@@ -16,7 +16,7 @@ func _ready():
 
 func _process(delta):
 	timer += delta
-	diff_modificator = log(timer / 15) + (wave * 0.1)
+	diff_modificator = log(timer / 15) + (wave * log(timer*0.1 / 5))
 	if diff_modificator < 0.1:
 		diff_modificator = 0.1
 

@@ -27,7 +27,7 @@ func setParams():
 	var diffMod = randf_range(0.1, get_node("/root/Game/Session").diff_modificator)
 	if diffMod < 0.1:
 		diffMod = 0.1
-	hp *= diffMod
+	hp *= diffMod*1.5
 	maxHp = hp
 	if type_range == 0:
 		speed += 100*diffMod*0.25
@@ -41,7 +41,7 @@ func setParams():
 	attackDelay -= randf_range(0.1, diffMod)
 	if attackDelay < 1.25:
 		attackDelay = 1.25
-	damage += damage*diffMod*0.1
+	damage += damage*diffMod*0.5
 	score = (hp*2 + speed + attackDelay + damage) / 4
 	
 	$"HP BAR".set_max(hp)
